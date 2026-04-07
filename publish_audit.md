@@ -59,9 +59,9 @@ ids-cross-domain-evaluation-release/
 ## Commit
 
 - Message: `Publish cleaned public-release repository`
-- Hash: (filled after commit)
+- Hash: `7be1c47`
 
 ## Push
 
-- Target: `origin main --force-with-lease`
-- Result: (filled after push)
+- Target: `origin main --force`
+- Result: **SUCCESS** — `+ 986d51f...7be1c47 main -> main (forced update)`
