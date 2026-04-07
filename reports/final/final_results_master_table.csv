@@ -1,0 +1,47 @@
+dataset_context,setting,source_dataset,target_dataset,method,method_family,operating_point,precision,recall,f1,fpr,roc_auc,pr_auc,support_total,support_attack,support_benign,notes,result_role,confidence_tier,confidence_note
+CIC-IDS2017,in_domain,cic,cic,suricata,rule,default,0.2134,0.001,0.0019,0.0024,,,491455,197378,294077,binary alert — no score-based AUC,primary,Tier 1,Deterministic rule-based
+CIC-IDS2017,in_domain,cic,cic,lr,ml,default,,0.1937,0.31,0.0376,0.2863,0.4361,491455,197378,294077,,primary,Tier 1,Deterministic; stable
+CIC-IDS2017,in_domain,cic,cic,rf,ml,default,,0.0383,0.0737,0.0001,0.7595,0.7571,491455,197378,294077,,primary,Tier 1,Deterministic; stable
+CIC-IDS2017,in_domain,cic,cic,xgb,ml,default,,0.067,0.1256,0.0001,0.9345,0.9099,491455,197378,294077,,primary,Tier 1,Deterministic; stable
+CIC-IDS2017,in_domain,cic,cic,cnn1d,dl,default,,0.1903,0.3197,0.0004,0.9973,0.9937,491455,197378,294077,,primary,Tier 1,DL seed-stable (std<0.002)
+CIC-IDS2017,in_domain,cic,cic,lstm,dl,default,,0.1905,0.3199,0.0005,0.8373,0.7501,491455,197378,294077,,primary,Tier 1,DL seed-stable (std<0.002)
+IoT-23,in_domain,iot,iot,lr,ml,default,,0.0323,0.0608,0.0377,0.764,0.7312,12865,7348,5517,family-disjoint: train=Mirai test=Torii+Hajime,primary,Tier 1,Deterministic; stable
+IoT-23,in_domain,iot,iot,rf,ml,default,,0.0012,0.0024,0.0207,0.6148,0.6421,12865,7348,5517,family-disjoint: train=Mirai test=Torii+Hajime,primary,Tier 1,Deterministic; stable
+IoT-23,in_domain,iot,iot,xgb,ml,default,,0.0309,0.0588,0.0254,0.6983,0.6991,12865,7348,5517,family-disjoint: train=Mirai test=Torii+Hajime,primary,Tier 1,Deterministic; stable
+IoT-23,in_domain,iot,iot,cnn1d,dl,default,,0.0136,0.0265,0.0187,0.6384,0.6734,12865,7348,5517,family-disjoint: train=Mirai test=Torii+Hajime,primary,Tier 1,DL seed-stable (F1 std<0.002)
+IoT-23,in_domain,iot,iot,lstm,dl,default,,0.3251,0.4681,0.0852,0.8942,0.8105,12865,7348,5517,family-disjoint: train=Mirai test=Torii+Hajime,primary,Tier 1,DL seed-stable (std~0.001)
+UNSW-NB15,in_domain,unsw,unsw,lr,ml,default,0.3839,0.8985,0.538,0.0865,0.9575,0.498,122175,6916,115259,,primary,Tier 1,Deterministic; stable
+UNSW-NB15,in_domain,unsw,unsw,rf,ml,default,0.718,0.9835,0.8301,0.0232,0.9931,0.8642,122175,6916,115259,,primary,Tier 1,Deterministic; stable
+UNSW-NB15,in_domain,unsw,unsw,xgb,ml,default,0.6945,0.9876,0.8155,0.0261,0.9932,0.8519,122175,6916,115259,,primary,Tier 1,Deterministic; stable
+UNSW-NB15,in_domain,unsw,unsw,cnn1d,dl,default,0.7041,0.9991,0.8261,0.0252,0.993,0.8529,122175,6916,115259,,primary,Tier 1,DL seed-stable (std=0.005)
+UNSW-NB15,in_domain,unsw,unsw,lstm,dl,default,0.685,0.9973,0.8122,0.0275,0.9912,0.8364,122175,6916,115259,,primary,Tier 2,DL moderate seed variance (std=0.021)
+CIC→IoT,cross_domain,cic,iot,lr,ml,default,,0.8153,0.8921,0.0167,0.9827,0.9699,12865,7348,5517,,primary,Tier 1,"F1=0.892 CI [0.886,0.897]; deterministic; statistically certified"
+CIC→IoT,cross_domain,cic,iot,rf,ml,default,,0.0,0.0,0.0002,0.6629,0.6996,12865,7348,5517,,primary,Tier 1,F1=0 confirmed; deterministic
+CIC→IoT,cross_domain,cic,iot,xgb,ml,default,,0.0,0.0,0.0002,0.8755,0.9185,12865,7348,5517,,primary,Tier 1,F1=0 at default; threshold failure; ROC alive; deterministic
+CIC→IoT,cross_domain,cic,iot,cnn1d,dl,default,,0.0003,0.0005,0.029,0.9017,0.8598,12865,7348,5517,,primary,Tier 1,DL near-zero F1; seed-stable (std=0.000)
+CIC→IoT,cross_domain,cic,iot,lstm,dl,default,,0.0,0.0,0.0002,0.9212,0.8849,12865,7348,5517,,primary,Tier 1,DL near-zero F1; seed-stable (std=0.001)
+CIC→UNSW,cross_domain,cic,unsw,lr,ml,default,0.1113,0.1998,0.1429,0.0958,0.6202,0.0972,122175,6916,115259,,primary,Tier 1,F1=0.143; deterministic; failure direction stable
+CIC→UNSW,cross_domain,cic,unsw,rf,ml,default,0.0,0.0,0.0,0.0,0.5879,0.0842,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+CIC→UNSW,cross_domain,cic,unsw,xgb,ml,default,0.0833,0.0001,0.0003,0.0001,0.3244,0.0494,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+CIC→UNSW,cross_domain,cic,unsw,cnn1d,dl,default,0.0,0.0,0.0,0.0,0.6964,0.1426,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+CIC→UNSW,cross_domain,cic,unsw,lstm,dl,default,0.0,0.0,0.0,0.0,0.5408,0.103,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+IoT→UNSW,cross_domain,iot,unsw,lr,ml,default,0.0177,0.1436,0.0316,0.477,0.3267,0.0388,122175,6916,115259,,primary,Tier 1,"F1=0.032 CI [0.030,0.033]; deterministic; failure certified"
+IoT→UNSW,cross_domain,iot,unsw,rf,ml,default,0.0184,0.166,0.0332,0.5301,0.3642,0.0423,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+IoT→UNSW,cross_domain,iot,unsw,xgb,ml,default,0.0245,0.2072,0.0438,0.495,0.4035,0.1113,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+IoT→UNSW,cross_domain,iot,unsw,cnn1d,dl,default,0.0462,0.0895,0.061,0.1108,0.6047,0.0952,122175,6916,115259,,primary,Tier 1,Deterministic; failure stable
+IoT→UNSW,cross_domain,iot,unsw,lstm,dl,default,0.1968,0.1079,0.1394,0.0264,0.6279,0.1244,122175,6916,115259,,primary,Tier 2,DL moderate seed variance (std=0.034); failure conclusion still holds
+UNSW→CIC,cross_domain,unsw,cic,lr,ml,default,0.6713,0.8031,0.7313,0.264,0.6392,0.4828,491455,197378,294077,,primary,Tier 2,"F1=0.731 CI [0.730,0.733]; certified but CIC is hard target"
+UNSW→CIC,cross_domain,unsw,cic,rf,ml,default,0.0017,0.0008,0.001,0.3056,0.3157,0.3194,491455,197378,294077,,primary,Tier 1,Deterministic; near-zero; stable
+UNSW→CIC,cross_domain,unsw,cic,xgb,ml,default,0.2166,0.1925,0.2038,0.4674,0.4191,0.3655,491455,197378,294077,,primary,Tier 1,Deterministic; partial result; stable
+UNSW→CIC,cross_domain,unsw,cic,cnn1d,dl,default,0.0059,0.0033,0.0042,0.3743,0.3908,0.3316,491455,197378,294077,,primary,Tier 3,DL high seed variance (std=0.042); point estimate not reliable
+UNSW→CIC,cross_domain,unsw,cic,lstm,dl,default,0.5196,0.8022,0.6307,0.4979,0.749,0.5794,491455,197378,294077,,primary,Tier 2,F1=0.631; seed-moderate; reasonable stability
+UNSW→IoT,cross_domain,unsw,iot,lr,ml,default,0.859492,0.860778,0.860135,0.187421,0.875499,0.813522,12865,7348,5517,,primary,Tier 1,"F1=0.860 CI [0.853,0.866]; deterministic; certified"
+UNSW→IoT,cross_domain,unsw,iot,rf,ml,default,0.824427,0.220468,0.347901,0.062534,0.820565,0.845826,12865,7348,5517,,primary,Tier 1,Deterministic; moderate result; stable
+UNSW→IoT,cross_domain,unsw,iot,xgb,ml,default,0.778507,0.839956,0.808065,0.318289,0.795769,0.788412,12865,7348,5517,,primary,Tier 1,F1=0.808; deterministic; certified
+UNSW→IoT,cross_domain,unsw,iot,cnn1d,dl,default,0.823712,0.757349,0.789138,0.215878,0.803163,0.81418,12865,7348,5517,,primary,Tier 1,DL seed-stable (std=0.025); F1=0.789 reliable
+UNSW→IoT,cross_domain,unsw,iot,lstm,dl,default,0.572681,0.924878,0.707364,0.919159,0.448231,0.582359,12865,7348,5517,,primary,Tier 3,F1=0.707 UNRELIABLE — seed std=0.184; range 0.44-0.80
+IoT→CIC,cross_domain,iot,cic,lr,ml,default,0.327995,0.049702,0.086323,0.068346,0.620969,0.450198,491455,197378,294077,,primary,Tier 1,F1=0.086; deterministic; failure stable; LR lower than LSTM but reliable
+IoT→CIC,cross_domain,iot,cic,rf,ml,default,0.001451,0.000223,0.000386,0.102973,0.762893,0.589709,491455,197378,294077,,primary,Tier 1,Deterministic; near-zero; stable
+IoT→CIC,cross_domain,iot,cic,xgb,ml,default,0.001617,0.000238,0.000415,0.098688,0.8335,0.713836,491455,197378,294077,,primary,Tier 1,Deterministic; near-zero at default; threshold failure mode
+IoT→CIC,cross_domain,iot,cic,cnn1d,dl,default,0.391477,0.165545,0.232691,0.172713,0.718224,0.600486,491455,197378,294077,,primary,Tier 3,DL high seed variance (std=0.039); point estimate not reliable
+IoT→CIC,cross_domain,iot,cic,lstm,dl,default,0.408564,0.19143,0.260707,0.185992,0.706651,0.555372,491455,197378,294077,,primary,Tier 3,F1=0.261 UNRELIABLE — seed std=0.149; range 0.03-0.27

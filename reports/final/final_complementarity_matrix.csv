@@ -1,0 +1,85 @@
+eval_block,source_dataset,target_dataset,regime,method_a,method_b,threshold_type,n_attacks,n_benign,tp_a,tp_b,tp_shared,tp_a_only,tp_b_only,fp_a,fp_b,fp_shared,fp_a_only,fp_b_only,tp_jaccard,fp_jaccard,tp_overlap_ratio_a,tp_overlap_ratio_b,fp_overlap_ratio_a,fp_overlap_ratio_b,degenerate_note
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,xgb,default,197378,294077,38235,13223,13223,25012,0,11067,36,36,11031,0,0.3458,0.0033,0.3458,1.0,0.0033,1.0,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,lstm,default,197378,294077,38235,37605,37605,630,0,11067,151,112,10955,39,0.9835,0.0101,0.9835,1.0,0.0101,0.7417,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,xgb,lstm,default,197378,294077,13223,37605,13223,0,24382,36,151,36,0,115,0.3516,0.2384,1.0,0.3516,1.0,0.2384,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,suricata,lr,default,197378,294077,191,38235,6,185,38229,704,11067,38,666,11029,0.0002,0.0032,0.0314,0.0002,0.054,0.0034,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,suricata,xgb,default,197378,294077,191,13223,0,191,13223,704,36,0,704,36,0.0,0.0,0.0,0.0,0.0,0.0,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,suricata,lstm,default,197378,294077,191,37605,6,185,37599,704,151,0,704,151,0.0002,0.0,0.0314,0.0002,0.0,0.0,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,xgb,val_tuned,197378,294077,154,38240,154,0,38086,14,2500,4,10,2496,0.004,0.0016,1.0,0.004,0.2857,0.0016,lr degenerate at val_tuned
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,lstm,val_tuned,197378,294077,154,37605,154,0,37451,14,140,1,13,139,0.0041,0.0065,1.0,0.0041,0.0714,0.0071,lr degenerate at val_tuned
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,xgb,lstm,val_tuned,197378,294077,38240,37605,37605,635,0,2500,140,102,2398,38,0.9834,0.0402,0.9834,1.0,0.0408,0.7286,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,xgb,fixed_fpr,197378,294077,37604,38240,37604,0,636,2696,3023,346,2350,2677,0.9834,0.0644,1.0,0.9834,0.1283,0.1145,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,lr,lstm,fixed_fpr,197378,294077,37604,37607,37604,0,3,2696,2703,215,2481,2488,0.9999,0.0415,1.0,0.9999,0.0797,0.0795,
+in_domain_cic,CIC-IDS2017,CIC-IDS2017,in_domain,xgb,lstm,fixed_fpr,197378,294077,38240,37607,37605,635,2,3023,2703,317,2706,2386,0.9833,0.0586,0.9834,0.9999,0.1049,0.1173,
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,xgb,default,7348,5517,237,227,224,13,3,208,140,92,116,48,0.9333,0.3594,0.9451,0.9868,0.4423,0.6571,
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,lstm,default,7348,5517,237,2389,15,222,2374,208,470,146,62,324,0.0057,0.2744,0.0633,0.0063,0.7019,0.3106,
+in_domain_iot,IoT-23,IoT-23,in_domain,xgb,lstm,default,7348,5517,227,2389,8,219,2381,140,470,68,72,402,0.0031,0.1255,0.0352,0.0033,0.4857,0.1447,
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,xgb,val_tuned,7348,5517,262,8,8,254,0,295,40,21,274,19,0.0305,0.0669,0.0305,1.0,0.0712,0.525,xgb degenerate at val_tuned
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,lstm,val_tuned,7348,5517,262,2204,28,234,2176,295,461,155,140,306,0.0115,0.2579,0.1069,0.0127,0.5254,0.3362,
+in_domain_iot,IoT-23,IoT-23,in_domain,xgb,lstm,val_tuned,7348,5517,8,2204,5,3,2199,40,461,25,15,436,0.0023,0.0525,0.625,0.0023,0.625,0.0542,xgb degenerate at val_tuned
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,xgb,fixed_fpr,7348,5517,5,0,0,5,0,30,0,0,30,0,0.0,0.0,0.0,,0.0,,both lr and xgb degenerate at fixed_fpr
+in_domain_iot,IoT-23,IoT-23,in_domain,lr,lstm,fixed_fpr,7348,5517,5,7,4,1,3,30,5,2,28,3,0.5,0.0606,0.8,0.5714,0.0667,0.4,lr degenerate at fixed_fpr
+in_domain_iot,IoT-23,IoT-23,in_domain,xgb,lstm,fixed_fpr,7348,5517,0,7,0,0,7,0,5,0,0,5,0.0,0.0,,0.0,,0.0,xgb degenerate at fixed_fpr
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,xgb,default,6916,115259,6214,6830,6134,80,696,9971,3005,2987,6984,18,0.8877,0.299,0.9871,0.8981,0.2996,0.994,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,lstm,default,6916,115259,6214,6897,6211,3,686,9971,3171,3145,6826,26,0.9001,0.3146,0.9995,0.9005,0.3154,0.9918,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,xgb,lstm,default,6916,115259,6830,6897,6813,17,84,3005,3171,2881,124,290,0.9854,0.8744,0.9975,0.9878,0.9587,0.9085,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,xgb,val_tuned,6916,115259,4837,6581,4568,269,2013,3340,2517,1815,1525,702,0.6669,0.449,0.9444,0.6941,0.5434,0.7211,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,lstm,val_tuned,6916,115259,4837,6816,4782,55,2034,3340,2911,2202,1138,709,0.696,0.5438,0.9886,0.7016,0.6593,0.7564,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,xgb,lstm,val_tuned,6916,115259,6581,6816,6498,83,318,2517,2911,2251,266,660,0.9419,0.7085,0.9874,0.9533,0.8943,0.7733,
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,xgb,fixed_fpr,6916,115259,99,1,0,99,1,2,0,0,2,0,0.0,0.0,0.0,0.0,0.0,,both lr and xgb degenerate at fixed_fpr
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,lr,lstm,fixed_fpr,6916,115259,99,1,0,99,1,2,0,0,2,0,0.0,0.0,0.0,0.0,0.0,,both lr and lstm degenerate at fixed_fpr
+in_domain_unsw,UNSW-NB15,UNSW-NB15,in_domain,xgb,lstm,fixed_fpr,6916,115259,1,1,0,1,1,0,0,0,0,0,0.0,,0.0,0.0,,,both xgb and lstm degenerate at fixed_fpr
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,xgb,default,7348,5517,5991,0,0,5991,0,92,1,0,92,1,0.0,0.0,0.0,,0.0,0.0,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,lstm,default,7348,5517,5991,0,0,5991,0,92,1,1,91,0,0.0,0.0109,0.0,,0.0109,1.0,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,xgb,lstm,default,7348,5517,0,0,0,0,0,1,1,0,1,1,,0.0,,,0.0,0.0,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,xgb,val_tuned,7348,5517,6,442,0,6,442,10,24,0,10,24,0.0,0.0,0.0,0.0,0.0,0.0,lr degenerate at val_tuned
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,lstm,val_tuned,7348,5517,6,0,0,6,0,10,1,0,10,1,0.0,0.0,0.0,,0.0,0.0,lr degenerate at val_tuned
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,xgb,lstm,val_tuned,7348,5517,442,0,0,442,0,24,1,1,23,0,0.0,0.0417,0.0,,0.0417,1.0,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,xgb,fixed_fpr,7348,5517,5189,533,368,4821,165,42,36,2,40,34,0.0687,0.0263,0.0709,0.6904,0.0476,0.0556,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,lr,lstm,fixed_fpr,7348,5517,5189,298,17,5172,281,42,45,9,33,36,0.0031,0.1154,0.0033,0.057,0.2143,0.2,
+cic_to_iot,CIC-IDS2017,IoT-23,cross_domain,xgb,lstm,fixed_fpr,7348,5517,533,298,0,533,298,36,45,1,35,44,0.0,0.0125,0.0,0.0,0.0278,0.0222,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,xgb,default,6916,115259,1382,1,1,1381,0,11040,11,11,11029,0,0.0007,0.001,0.0007,1.0,0.001,1.0,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,lstm,default,6916,115259,1382,0,0,1382,0,11040,1,0,11040,1,0.0,0.0,0.0,,0.0,0.0,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,xgb,lstm,default,6916,115259,1,0,0,1,0,11,1,0,11,1,0.0,0.0,0.0,,0.0,0.0,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,xgb,val_tuned,6916,115259,24,363,0,24,363,106,5947,0,106,5947,0.0,0.0,0.0,0.0,0.0,0.0,lr degenerate at val_tuned
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,lstm,val_tuned,6916,115259,24,0,0,24,0,106,1,0,106,1,0.0,0.0,0.0,,0.0,0.0,lr degenerate at val_tuned
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,xgb,lstm,val_tuned,6916,115259,363,0,0,363,0,5947,1,0,5947,1,0.0,0.0,0.0,,0.0,0.0,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,xgb,fixed_fpr,6916,115259,521,388,131,390,257,8807,6290,1122,7685,5168,0.1684,0.0803,0.2514,0.3376,0.1274,0.1784,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,lr,lstm,fixed_fpr,6916,115259,521,241,0,521,241,8807,1123,7,8800,1116,0.0,0.0007,0.0,0.0,0.0008,0.0062,
+cic_to_unsw,CIC-IDS2017,UNSW-NB15,cross_domain,xgb,lstm,fixed_fpr,6916,115259,388,241,19,369,222,6290,1123,208,6082,915,0.0311,0.0289,0.049,0.0788,0.0331,0.1852,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,xgb,default,6916,115259,993,1433,654,339,779,54981,57052,43007,11974,14045,0.3691,0.6231,0.6586,0.4564,0.7822,0.7538,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,lstm,default,6916,115259,993,746,0,993,746,54981,3044,1,54980,3043,0.0,0.0,0.0,0.0,0.0,0.0003,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,xgb,lstm,default,6916,115259,1433,746,122,1311,624,57052,3044,57,56995,2987,0.0593,0.0009,0.0851,0.1635,0.001,0.0187,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,xgb,val_tuned,6916,115259,1439,724,662,777,62,64225,34932,32285,31940,2647,0.441,0.4828,0.46,0.9144,0.5027,0.9242,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,lstm,val_tuned,6916,115259,1439,620,0,1439,620,64225,3002,2,64223,3000,0.0,0.0,0.0,0.0,0.0,0.0007,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,xgb,lstm,val_tuned,6916,115259,724,620,0,724,620,34932,3002,1,34931,3001,0.0,0.0,0.0,0.0,0.0,0.0003,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,xgb,fixed_fpr,6916,115259,357,0,0,357,0,25240,0,0,25240,0,0.0,0.0,0.0,,0.0,,xgb degenerate at fixed_fpr
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,lr,lstm,fixed_fpr,6916,115259,357,1,0,357,1,25240,1,0,25240,1,0.0,0.0,0.0,0.0,0.0,0.0,
+iot_to_unsw,IoT-23,UNSW-NB15,cross_domain,xgb,lstm,fixed_fpr,6916,115259,0,1,0,0,1,0,1,0,0,1,0.0,0.0,,0.0,,0.0,xgb degenerate at fixed_fpr
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,xgb,default,197378,294077,158510,37993,692,157818,37301,77629,137443,50608,27021,86835,0.0035,0.3077,0.0044,0.0182,0.6519,0.3682,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,lstm,default,197378,294077,158510,158345,157334,1176,1011,77629,146421,59283,18346,87138,0.9863,0.3598,0.9926,0.9936,0.7637,0.4049,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,xgb,lstm,default,197378,294077,37993,158345,760,37233,157585,137443,146421,102605,34838,43816,0.0039,0.5661,0.02,0.0048,0.7465,0.7008,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,xgb,val_tuned,197378,294077,154339,27333,20,154319,27313,65237,109589,30726,34511,78863,0.0001,0.2132,0.0001,0.0007,0.471,0.2804,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,lstm,val_tuned,197378,294077,154339,157842,153831,508,4011,65237,83422,32058,33179,51364,0.9715,0.2749,0.9967,0.9746,0.4914,0.3843,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,xgb,lstm,val_tuned,197378,294077,27333,157842,82,27251,157760,109589,83422,40305,69284,43117,0.0004,0.2639,0.003,0.0005,0.3678,0.4831,
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,xgb,fixed_fpr,197378,294077,0,0,0,0,0,16449,0,0,16449,0,,0.0,,,0.0,,both lr and xgb degenerate at fixed_fpr
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,lr,lstm,fixed_fpr,197378,294077,0,0,0,0,0,16449,0,0,16449,0,,0.0,,,0.0,,both lr and lstm degenerate at fixed_fpr
+unsw_to_cic,UNSW-NB15,CIC-IDS2017,cross_domain,xgb,lstm,fixed_fpr,197378,294077,0,0,0,0,0,0,0,0,0,0,,,,,,,both xgb and lstm degenerate at fixed_fpr
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,xgb,default,7348,5517,6325,6172,6089,236,83,1034,1756,200,834,1556,0.9502,0.0772,0.9627,0.9866,0.1934,0.1139,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,lstm,default,7348,5517,6325,6796,5892,433,904,1034,5071,887,147,4184,0.8151,0.17,0.9315,0.867,0.8578,0.1749,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,xgb,lstm,default,7348,5517,6172,6796,5684,488,1112,1756,5071,1557,199,3514,0.7803,0.2954,0.9209,0.8364,0.8867,0.307,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,xgb,val_tuned,7348,5517,6301,5503,5498,803,5,932,649,173,759,476,0.8719,0.1229,0.8726,0.9991,0.1856,0.2666,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,lstm,val_tuned,7348,5517,6301,3366,2534,3767,832,932,3964,533,399,3431,0.3553,0.1222,0.4022,0.7528,0.5719,0.1345,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,xgb,lstm,val_tuned,7348,5517,5503,3366,2358,3145,1008,649,3964,241,408,3723,0.3622,0.0551,0.4285,0.7005,0.3713,0.0608,
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,xgb,fixed_fpr,7348,5517,15,0,0,15,0,7,0,0,7,0,0.0,0.0,0.0,,0.0,,both lr and xgb degenerate at fixed_fpr
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,lr,lstm,fixed_fpr,7348,5517,15,0,0,15,0,7,0,0,7,0,0.0,0.0,0.0,,0.0,,both lr and lstm degenerate at fixed_fpr
+unsw_to_iot,UNSW-NB15,IoT-23,cross_domain,xgb,lstm,fixed_fpr,7348,5517,0,0,0,0,0,0,0,0,0,0,,,,,,,both xgb and lstm degenerate at fixed_fpr
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,xgb,default,197378,294077,9810,47,47,9763,0,20099,29022,12153,7946,16869,0.0048,0.3287,0.0048,1.0,0.6047,0.4188,
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,lstm,default,197378,294077,9810,37784,9761,49,28023,20099,54696,3242,16857,51454,0.258,0.0453,0.995,0.2583,0.1613,0.0593,
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,xgb,lstm,default,197378,294077,47,37784,0,47,37784,29022,54696,15390,13632,39306,0.0,0.2252,0.0,0.0,0.5303,0.2814,
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,xgb,val_tuned,197378,294077,9892,43,43,9849,0,37315,14898,10383,26932,4515,0.0043,0.2482,0.0043,1.0,0.2783,0.6969,xgb degenerate at val_tuned
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,lstm,val_tuned,197378,294077,9892,37784,9766,126,28018,37315,49684,7613,29702,42071,0.2576,0.0959,0.9873,0.2585,0.204,0.1532,
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,xgb,lstm,val_tuned,197378,294077,43,37784,0,43,37784,14898,49684,4704,10194,44980,0.0,0.0786,0.0,0.0,0.3157,0.0947,xgb degenerate at val_tuned
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,xgb,fixed_fpr,197378,294077,195,0,0,195,0,3859,0,0,3859,0,0.0,0.0,0.0,,0.0,,both lr and xgb degenerate at fixed_fpr
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,lr,lstm,fixed_fpr,197378,294077,195,0,0,195,0,3859,4380,1,3858,4379,0.0,0.0001,0.0,,0.0003,0.0002,lr degenerate at fixed_fpr
+iot_to_cic,IoT-23,CIC-IDS2017,cross_domain,xgb,lstm,fixed_fpr,197378,294077,0,0,0,0,0,0,4380,0,0,4380,,0.0,,,,0.0,xgb degenerate at fixed_fpr

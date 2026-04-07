@@ -1,0 +1,53 @@
+# =============================================================================
+# feature_config.yaml — Flow-level feature extraction settings (for ML models)
+# =============================================================================
+# Controls how raw PCAP is converted into flow-level feature vectors.
+# The flow extractor tool is TBD; this file defines the conceptual parameters.
+# =============================================================================
+
+# --- Flow definition ---
+flow:
+  # How a "flow" is identified — standard 5-tuple unless noted otherwise
+  key_fields: ["src_ip", "dst_ip", "src_port", "dst_port", "protocol"]
+
+  # Timeouts for flow aggregation (seconds)
+  active_timeout: 120           # max duration of a single flow
+  idle_timeout: 60              # gap before a flow is considered finished
+
+# --- Feature groups ---
+# Each group can be toggled on/off. Feature names are placeholders;
+# exact names depend on the chosen flow extractor.
+feature_groups:
+
+  basic:
+    enabled: true
+    description: "Packet counts, byte counts, duration"
+
+  statistical:
+    enabled: true
+    description: "Mean, std, min, max of packet sizes and inter-arrival times"
+
+  flag_based:
+    enabled: true
+    description: "TCP flag counts (SYN, FIN, RST, PSH, ACK, URG)"
+
+  bidirectional:
+    enabled: true
+    description: "Forward vs backward flow statistics"
+
+# --- Normalization ---
+normalization:
+  method: "standard"            # options: standard | minmax | robust | none
+  fit_on: "train"               # MUST be "train" only — never fit on val/test
+  # NOTE: Scaler must be fitted on training split and applied to val/test
+  #       without refitting. This prevents data leakage.
+
+# --- Missing values ---
+missing_values:
+  strategy: "zero"              # options: zero | median | drop
+  # Flows with all-NaN features should be logged, not silently dropped.
+
+# --- Output ---
+output:
+  format: "parquet"             # options: parquet | csv
+  # Output directory is determined per-dataset at runtime, not hardcoded here.

@@ -1,0 +1,182 @@
+# =============================================================================
+# iot23_split_plan.yaml — IoT-23 Subset A scenario-level split plan
+# =============================================================================
+# Phase 4 Step 2 — designed 2026-03-25
+#
+# DESIGN PRINCIPLES
+#   - Scenario-level split: every flow from a scenario goes entirely to one
+#     partition, preventing temporal leakage across splits.
+#   - Subset A: 8 small-to-medium scenarios; total PCAP ~376 MB.
+#     Very large scenarios (label ref > 500 MB or confirmed PCAP > 500 MB)
+#     are deferred.
+#   - Attack-family composition: train+val both contain Mirai only; test
+#     contains Torii + Hajime (non-Mirai) to probe cross-family generalisation.
+#   - Each split includes at least one benign scenario.
+# =============================================================================
+
+subset: "A"
+design_date: "2026-03-25"
+
+rationale: >
+  Disk constraint: 149 GB free on D:. PCAPs for the full 23-scenario IoT-23
+  corpus would exceed available space. Subset A selects 8 scenarios whose
+  confirmed PCAP sizes (checked against Stratosphere Lab server 2026-03-25)
+  total approximately 376 MB decompressed. Scenarios with label refs > 500 MB
+  are deferred as a proxy for large PCAPs (with the exception of Capture-44-1
+  whose 30 KB label ref proved misleading — actual PCAP is 1.7 GB).
+  The test set exclusively contains non-Mirai malware families (Torii, Hajime)
+  and a large benign scenario, providing a meaningful cross-family evaluation.
+
+# PCAP base URL — append pcap_url_relpath to form full download URL
+pcap_base_url: "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset/IndividualScenarios"
+
+# Paths below are relative to the iot23 external data root (D:/ids_project_data/iot23/)
+scenarios:
+
+  # ── TRAIN ─────────────────────────────────────────────────────────────────
+  - scenario: "CTU-IoT-Malware-Capture-20-1"
+    split: "train"
+    family: "Mirai"
+    label_type: "malware"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-20-1/2018-10-02-13-12-30-192.168.100.103.pcap"
+    pcap_filename: "2018-10-02-13-12-30-192.168.100.103.pcap"
+    pcap_size_approx: "3.9 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-20-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-IoT-Malware-Capture-42-1"
+    split: "train"
+    family: "Mirai"
+    label_type: "malware"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-42-1/2019-01-10-14-34-38-192.168.1.197.pcap"
+    pcap_filename: "2019-01-10-14-34-38-192.168.1.197.pcap"
+    pcap_size_approx: "2.8 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-42-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-Honeypot-Capture-4-1"
+    split: "train"
+    family: "benign"
+    label_type: "benign"
+    # Server file is .pcap.xz; decompress to .pcap locally
+    pcap_url_relpath: "CTU-Honeypot-Capture-4-1/2018-10-25-14-06-32-192.168.1.132.pcap.xz"
+    pcap_filename: "2018-10-25-14-06-32-192.168.1.132.pcap"
+    pcap_size_approx: "368 KB compressed"
+    pcap_compressed: true
+    pcap_compressed_ext: ".xz"
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-4-1/bro/conn.log.labeled"
+
+  # ── VAL ───────────────────────────────────────────────────────────────────
+  - scenario: "CTU-IoT-Malware-Capture-21-1"
+    split: "val"
+    family: "Mirai"
+    label_type: "malware"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-21-1/2018-10-03-15-22-32-192.168.100.113.pcap"
+    pcap_filename: "2018-10-03-15-22-32-192.168.100.113.pcap"
+    pcap_size_approx: "3.9 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-21-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-Honeypot-Capture-7-1"
+    split: "val"
+    family: "benign"
+    label_type: "benign"
+    # Somfy-01 sub-scenario; PCAP and label ref both under Somfy-01/ on server
+    pcap_url_relpath: "CTU-Honeypot-Capture-7-1/Somfy-01/2019-07-03-15-15-47-first_start_somfy_gateway.pcap"
+    pcap_filename: "2019-07-03-15-15-47-first_start_somfy_gateway.pcap"
+    pcap_size_approx: "2.0 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-7-1/Somfy-01/bro/conn.log.labeled"
+    notes: "Non-standard layout: Somfy-01 sub-scenario; only sub-scenario with labeled data."
+
+  # ── TEST ──────────────────────────────────────────────────────────────────
+  - scenario: "CTU-IoT-Malware-Capture-8-1"
+    split: "test"
+    family: "Torii"
+    label_type: "malware"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-8-1/2018-07-31-15-15-09-192.168.100.113.pcap"
+    pcap_filename: "2018-07-31-15-15-09-192.168.100.113.pcap"
+    pcap_size_approx: "2.0 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-8-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-IoT-Malware-Capture-34-1"
+    split: "test"
+    family: "Hajime"
+    label_type: "malware"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-34-1/2018-12-21-15-50-14-192.168.1.195.pcap"
+    pcap_filename: "2018-12-21-15-50-14-192.168.1.195.pcap"
+    pcap_size_approx: "120 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-34-1/bro/conn.log.labeled"
+    notes: "Uses det_label field name instead of detailed-label (Zeek variant)."
+
+  - scenario: "CTU-Honeypot-Capture-5-1"
+    split: "test"
+    family: "benign"
+    label_type: "benign"
+    pcap_url_relpath: "CTU-Honeypot-Capture-5-1/2018-09-21-capture.pcap"
+    pcap_filename: "2018-09-21-capture.pcap"
+    pcap_size_approx: "364 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-5-1/bro/conn.log.labeled"
+
+# =============================================================================
+# Deferred scenarios (not in Subset A)
+# =============================================================================
+deferred:
+
+  - scenario: "CTU-IoT-Malware-Capture-44-1"
+    reason: "Confirmed PCAP size 1.7 GB despite 30 KB label ref — misleading size proxy."
+
+  - scenario: "CTU-IoT-Malware-Capture-17-1"
+    reason: "Label ref 7.6 GB implies very large PCAP; exceeds Subset A disk budget."
+
+  - scenario: "CTU-IoT-Malware-Capture-33-1"
+    reason: "Label ref 7.3 GB implies very large PCAP."
+
+  - scenario: "CTU-IoT-Malware-Capture-39-1"
+    reason: "Label ref 10.1 GB implies very large PCAP."
+
+  - scenario: "CTU-IoT-Malware-Capture-43-1"
+    reason: "Label ref 8.7 GB implies very large PCAP; also non-standard labeled/ path."
+
+  - scenario: "CTU-IoT-Malware-Capture-7-1"
+    family: "Torii"
+    reason: "Label ref 1.5 GB; deferred for Subset A disk budget."
+
+  - scenario: "CTU-IoT-Malware-Capture-9-1"
+    family: "Torii"
+    reason: "Label ref 948 MB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-35-1"
+    family: "Hajime"
+    reason: "Label ref 1.2 GB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-36-1"
+    family: "Hajime"
+    reason: "Label ref 1.7 GB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-48-1"
+    family: "Mirai"
+    reason: "Label ref 507 MB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-49-1"
+    family: "Mirai"
+    reason: "Label ref 814 MB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-52-1"
+    family: "Gagfyt"
+    reason: "Label ref 2.9 GB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-60-1"
+    family: "Kenjiro"
+    reason: "Label ref 446 MB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-1-1"
+    family: "Mirai"
+    reason: "Label ref 141 MB; deferred for Subset A."
+
+  - scenario: "CTU-IoT-Malware-Capture-3-1"
+    family: "Mirai"
+    reason: "Label ref 23 MB; deferred for Subset A."

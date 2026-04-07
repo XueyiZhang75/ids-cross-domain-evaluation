@@ -1,0 +1,61 @@
+# =============================================================================
+# eval_config.yaml — Evaluation and analysis settings
+# =============================================================================
+# Controls metrics, threshold analysis, and reporting options.
+# =============================================================================
+
+# --- Primary metrics ---
+metrics:
+  # Reported for every experiment
+  primary:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "auroc"
+    - "auprc"                   # area under precision-recall curve
+
+  # Additional metrics computed when applicable
+  secondary:
+    - "fpr"                     # false positive rate (at chosen threshold)
+    - "fnr"                     # false negative rate
+    - "balanced_accuracy"
+    - "mcc"                     # Matthews correlation coefficient
+
+# --- Fixed-FPR threshold analysis (E6) ---
+threshold:
+  # Evaluate TPR at each of these FPR budgets
+  fixed_fpr_budgets: [0.001, 0.005, 0.01, 0.05]
+
+  # How the threshold is determined
+  calibration_source: "source_val"
+  # MUST be source-domain validation set only.
+  # Target-domain data must NEVER be used for threshold selection
+  # in transfer experiments (see DECISIONS.md, D3).
+
+# --- Calibration ---
+calibration:
+  enabled: false                # set true to apply post-hoc calibration
+  method: "isotonic"            # options: isotonic | platt
+  # Calibration is fitted on source-domain validation set only.
+
+# --- Cross-domain evaluation ---
+cross_domain:
+  # When true, log per-sample predictions for later analysis
+  save_predictions: true
+  prediction_format: "parquet"  # options: parquet | csv
+
+# --- Runtime / resource tracking ---
+resource_tracking:
+  enabled: true
+  track_training_time: true
+  track_inference_time: true
+  track_peak_memory: true       # peak GPU/CPU memory during training
+
+# --- Reporting ---
+reporting:
+  # Where to write metric summaries and figures
+  # Actual paths are resolved at runtime relative to reports/
+  figures_subdir: "figures"
+  tables_subdir: "tables"
+  decimal_places: 4             # precision for reported metrics

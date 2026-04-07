@@ -1,0 +1,168 @@
+# =============================================================================
+# iot23_split_plan_subsetA_v2.yaml — IoT-23 Subset A v2 candidate split plan
+# =============================================================================
+# Phase 0.6.2 — Coverage remediation round 1
+# Designed: 2026-04-02
+#
+# KEY DIFFERENCES FROM v1 (iot23_split_plan.yaml):
+#   - Added 3 new train scenarios: Capture-52-1 (Gagfyt), Capture-60-1 (Kenjiro/Gafgyt),
+#     and Capture-44-1 (Mirai, optional)
+#   - Val and test are UNCHANGED from v1
+#   - Purpose: expand family coverage in train while preserving CIC→IoT cross-domain target test
+#
+# DESIGN PRINCIPLES (all inherited from v1):
+#   - Scenario-level split: every flow from a scenario goes entirely to one partition
+#   - New families added to train only (test unchanged)
+#   - Test retains: Capture-8-1 (Torii), Capture-34-1 (Hajime), Honeypot-5-1 (benign)
+# =============================================================================
+
+subset: "A"
+version: "v2_candidate"
+design_date: "2026-04-02"
+supersedes: "iot23_split_plan.yaml (Subset A v1)"
+
+rationale: >
+  Coverage remediation round 1 adds Gagfyt (52-1) and Kenjiro/Gafgyt (60-1) to the
+  training split to address the family coverage gap identified in Phase 0.6 audit.
+  Capture-44-1 (tiny Mirai) is also added as a low-cost additional train scenario.
+  The test split is intentionally unchanged to preserve compatibility with existing
+  CIC→IoT cross-domain results (CIC-trained models applied to unchanged IoT test set).
+
+pcap_base_url: "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset/IndividualScenarios"
+
+# ── TRAIN (v1 scenarios, unchanged) ──────────────────────────────────────────
+scenarios:
+
+  - scenario: "CTU-IoT-Malware-Capture-20-1"
+    split: "train"
+    family: "Mirai"
+    label_type: "malware"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-20-1/2018-10-02-13-12-30-192.168.100.103.pcap"
+    pcap_filename: "2018-10-02-13-12-30-192.168.100.103.pcap"
+    pcap_size_approx: "3.9 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-20-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-IoT-Malware-Capture-42-1"
+    split: "train"
+    family: "Mirai"
+    label_type: "malware"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-42-1/2019-01-10-14-34-38-192.168.1.197.pcap"
+    pcap_filename: "2019-01-10-14-34-38-192.168.1.197.pcap"
+    pcap_size_approx: "2.8 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-42-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-Honeypot-Capture-4-1"
+    split: "train"
+    family: "benign"
+    label_type: "benign"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-Honeypot-Capture-4-1/2018-10-25-14-06-32-192.168.1.132.pcap.xz"
+    pcap_filename: "2018-10-25-14-06-32-192.168.1.132.pcap"
+    pcap_size_approx: "368 KB compressed"
+    pcap_compressed: true
+    pcap_compressed_ext: ".xz"
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-4-1/bro/conn.log.labeled"
+
+  # ── TRAIN (v2 NEW scenarios) ─────────────────────────────────────────────────
+
+  - scenario: "CTU-IoT-Malware-Capture-52-1"
+    split: "train"
+    family: "Gagfyt"
+    label_type: "malware"
+    version_added: "v2"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-52-1/2019-03-08-13-24-30-192.168.1.197.pcap"
+    pcap_filename: "2019-03-08-13-24-30-192.168.1.197.pcap"
+    pcap_size_bytes: 4904467819
+    pcap_size_approx: "4.9 GB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-52-1/bro/conn.log.labeled"
+    notes: "Dominant detailed-labels: PartOfAHorizontalPortScan, C&C-FileDownload, C&C"
+
+  - scenario: "CTU-IoT-Malware-Capture-60-1"
+    split: "train"
+    family: "Kenjiro"
+    label_type: "malware"
+    version_added: "v2"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-60-1/2019-09-20-02-40-32-192.168.1.195.pcap"
+    pcap_filename: "2019-09-20-02-40-32-192.168.1.195.pcap"
+    pcap_size_bytes: 22028429274
+    pcap_size_approx: "22 GB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-60-1/bro/conn.log.labeled"
+    notes: "Dominant detailed-labels: DDoS, C&C-HeartBeat. README says Gafgyt; classified as Kenjiro per IoT-23 intake report."
+
+  - scenario: "CTU-IoT-Malware-Capture-44-1"
+    split: "train"
+    family: "Mirai"
+    label_type: "malware"
+    version_added: "v2"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-44-1/2019-01-10-21-06-26-192.168.1.199.pcap"
+    pcap_filename: "2019-01-10-21-06-26-192.168.1.199.pcap"
+    pcap_size_bytes: 1822543872
+    pcap_size_approx: "1.8 GB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-44-1/bro/conn.log.labeled"
+    notes: "Tiny scenario (237 rows in label); PCAP is 1.8 GB despite 30 KB label ref."
+
+  # ── VAL (unchanged from v1) ───────────────────────────────────────────────
+  - scenario: "CTU-IoT-Malware-Capture-21-1"
+    split: "val"
+    family: "Mirai"
+    label_type: "malware"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-21-1/2018-10-03-15-22-32-192.168.100.113.pcap"
+    pcap_filename: "2018-10-03-15-22-32-192.168.100.113.pcap"
+    pcap_size_approx: "3.9 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-21-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-Honeypot-Capture-7-1"
+    split: "val"
+    family: "benign"
+    label_type: "benign"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-Honeypot-Capture-7-1/Somfy-01/2019-07-03-15-15-47-first_start_somfy_gateway.pcap"
+    pcap_filename: "2019-07-03-15-15-47-first_start_somfy_gateway.pcap"
+    pcap_size_approx: "2.0 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-7-1/Somfy-01/bro/conn.log.labeled"
+    notes: "Somfy-01 sub-scenario only."
+
+  # ── TEST (unchanged from v1) ──────────────────────────────────────────────
+  - scenario: "CTU-IoT-Malware-Capture-8-1"
+    split: "test"
+    family: "Torii"
+    label_type: "malware"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-8-1/2018-07-31-15-15-09-192.168.100.113.pcap"
+    pcap_filename: "2018-07-31-15-15-09-192.168.100.113.pcap"
+    pcap_size_approx: "2.0 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-8-1/bro/conn.log.labeled"
+
+  - scenario: "CTU-IoT-Malware-Capture-34-1"
+    split: "test"
+    family: "Hajime"
+    label_type: "malware"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-IoT-Malware-Capture-34-1/2018-12-21-15-50-14-192.168.1.195.pcap"
+    pcap_filename: "2018-12-21-15-50-14-192.168.1.195.pcap"
+    pcap_size_approx: "120 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-IoT-Malware-Capture-34-1/bro/conn.log.labeled"
+    notes: "Uses det_label field instead of detailed-label."
+
+  - scenario: "CTU-Honeypot-Capture-5-1"
+    split: "test"
+    family: "benign"
+    label_type: "benign"
+    version_added: "v1"
+    pcap_url_relpath: "CTU-Honeypot-Capture-5-1/2018-09-21-capture.pcap"
+    pcap_filename: "2018-09-21-capture.pcap"
+    pcap_size_approx: "364 MB"
+    pcap_compressed: false
+    label_ref_relpath: "labels/CTU-Honeypot-Capture-5-1/bro/conn.log.labeled"

@@ -1,0 +1,49 @@
+benign_dataset,pcap_unit,source_dataset,method,threshold_type,eligible,total_flows,alerted_flows,fpr,raw_alert_count,capture_duration_hours,alerts_per_hour,alerts_per_1000_flows,prediction_asset_path,notes
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lr,default,True,2956,183,0.061908,183,0.166678,1097.92,61.91,D:\ids_project_data\processed\benign_external\cicids2017_lr_default_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lr,val_tuned,False,2956,15,0.005074,15,0.166678,89.99,5.07,D:\ids_project_data\processed\benign_external\cicids2017_lr_val_tuned_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lr,fixed_fpr,True,2956,155,0.052436,155,0.166678,929.94,52.44,D:\ids_project_data\processed\benign_external\cicids2017_lr_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,rf,default,True,2956,8,0.002706,8,0.166678,48.0,2.71,D:\ids_project_data\processed\benign_external\cicids2017_rf_default_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,rf,val_tuned,True,2956,507,0.171516,507,0.166678,3041.79,171.52,D:\ids_project_data\processed\benign_external\cicids2017_rf_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,rf,fixed_fpr,True,2956,1634,0.552774,1634,0.166678,9803.32,552.77,D:\ids_project_data\processed\benign_external\cicids2017_rf_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,xgb,default,True,2956,7,0.002368,7,0.166678,42.0,2.37,D:\ids_project_data\processed\benign_external\cicids2017_xgb_default_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,xgb,val_tuned,True,2956,199,0.067321,199,0.166678,1193.92,67.32,D:\ids_project_data\processed\benign_external\cicids2017_xgb_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,xgb,fixed_fpr,True,2956,258,0.08728,258,0.166678,1547.89,87.28,D:\ids_project_data\processed\benign_external\cicids2017_xgb_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,cnn1d,default,True,2956,843,0.285183,843,0.166678,5057.65,285.18,D:\ids_project_data\processed\benign_external\cicids2017_cnn1d_default_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,cnn1d,val_tuned,True,2956,1906,0.64479,1906,0.166678,11435.21,644.79,D:\ids_project_data\processed\benign_external\cicids2017_cnn1d_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,cnn1d,fixed_fpr,True,2956,2523,0.853518,2523,0.166678,15136.96,853.52,D:\ids_project_data\processed\benign_external\cicids2017_cnn1d_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lstm,default,True,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\cicids2017_lstm_default_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lstm,val_tuned,True,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\cicids2017_lstm_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,lstm,fixed_fpr,True,2956,7,0.002368,7,0.166678,42.0,2.37,D:\ids_project_data\processed\benign_external\cicids2017_lstm_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,CIC-IDS2017,suricata,default,False,2956,N/A,N/A,N/A,0.166678,N/A,N/A,N/A,SKIPPED: Suricata binary not available in current environment
+hw1_part2_pcap,part2.pcap,IoT-23,lr,default,True,2956,136,0.046008,136,0.166678,815.94,46.01,D:\ids_project_data\processed\benign_external\iot23_lr_default_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,lr,val_tuned,True,2956,249,0.084235,249,0.166678,1493.9,84.24,D:\ids_project_data\processed\benign_external\iot23_lr_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,lr,fixed_fpr,False,2956,73,0.024696,73,0.166678,437.97,24.7,D:\ids_project_data\processed\benign_external\iot23_lr_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,IoT-23,rf,default,True,2956,224,0.075778,224,0.166678,1343.91,75.78,D:\ids_project_data\processed\benign_external\iot23_rf_default_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,rf,val_tuned,True,2956,20,0.006766,20,0.166678,119.99,6.77,D:\ids_project_data\processed\benign_external\iot23_rf_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,rf,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\iot23_rf_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,IoT-23,xgb,default,True,2956,264,0.08931,264,0.166678,1583.89,89.31,D:\ids_project_data\processed\benign_external\iot23_xgb_default_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,xgb,val_tuned,False,2956,55,0.018606,55,0.166678,329.98,18.61,D:\ids_project_data\processed\benign_external\iot23_xgb_val_tuned_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,IoT-23,xgb,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\iot23_xgb_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,IoT-23,cnn1d,default,True,2956,50,0.016915,50,0.166678,299.98,16.91,D:\ids_project_data\processed\benign_external\iot23_cnn1d_default_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,cnn1d,val_tuned,True,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\iot23_cnn1d_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,cnn1d,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\iot23_cnn1d_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,IoT-23,lstm,default,True,2956,301,0.101827,301,0.166678,1805.88,101.83,D:\ids_project_data\processed\benign_external\iot23_lstm_default_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,lstm,val_tuned,True,2956,206,0.069689,206,0.166678,1235.91,69.69,D:\ids_project_data\processed\benign_external\iot23_lstm_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,lstm,fixed_fpr,True,2956,10,0.003383,10,0.166678,60.0,3.38,D:\ids_project_data\processed\benign_external\iot23_lstm_fixed_fpr_preds.npy,
+hw1_part2_pcap,part2.pcap,IoT-23,suricata,default,False,2956,N/A,N/A,N/A,0.166678,N/A,N/A,N/A,SKIPPED: Suricata binary not available in current environment
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lr,default,True,2956,1094,0.370095,1094,0.166678,6563.55,370.09,D:\ids_project_data\processed\benign_external\unsw_nb15_lr_default_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lr,val_tuned,True,2956,957,0.323748,957,0.166678,5741.6,323.75,D:\ids_project_data\processed\benign_external\unsw_nb15_lr_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lr,fixed_fpr,False,2956,42,0.014208,42,0.166678,251.98,14.21,D:\ids_project_data\processed\benign_external\unsw_nb15_lr_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,UNSW-NB15,rf,default,True,2956,243,0.082206,243,0.166678,1457.9,82.21,D:\ids_project_data\processed\benign_external\unsw_nb15_rf_default_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,rf,val_tuned,True,2956,285,0.096414,285,0.166678,1709.88,96.41,D:\ids_project_data\processed\benign_external\unsw_nb15_rf_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,rf,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\unsw_nb15_rf_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,UNSW-NB15,xgb,default,True,2956,516,0.17456,516,0.166678,3095.79,174.56,D:\ids_project_data\processed\benign_external\unsw_nb15_xgb_default_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,xgb,val_tuned,True,2956,323,0.109269,323,0.166678,1937.87,109.27,D:\ids_project_data\processed\benign_external\unsw_nb15_xgb_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,xgb,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\unsw_nb15_xgb_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,UNSW-NB15,cnn1d,default,True,2956,605,0.204668,605,0.166678,3629.75,204.67,D:\ids_project_data\processed\benign_external\unsw_nb15_cnn1d_default_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,cnn1d,val_tuned,True,2956,423,0.143099,423,0.166678,2537.83,143.1,D:\ids_project_data\processed\benign_external\unsw_nb15_cnn1d_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,cnn1d,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\unsw_nb15_cnn1d_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lstm,default,True,2956,687,0.232409,687,0.166678,4121.72,232.41,D:\ids_project_data\processed\benign_external\unsw_nb15_lstm_default_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lstm,val_tuned,True,2956,569,0.19249,569,0.166678,3413.76,192.49,D:\ids_project_data\processed\benign_external\unsw_nb15_lstm_val_tuned_preds.npy,
+hw1_part2_pcap,part2.pcap,UNSW-NB15,lstm,fixed_fpr,False,2956,0,0.0,0,0.166678,0.0,0.0,D:\ids_project_data\processed\benign_external\unsw_nb15_lstm_fixed_fpr_preds.npy,Degenerate threshold (thr≥0.99) — effectively all-benign; FPR reported but not deployment-comparable
+hw1_part2_pcap,part2.pcap,UNSW-NB15,suricata,default,False,2956,N/A,N/A,N/A,0.166678,N/A,N/A,N/A,SKIPPED: Suricata binary not available in current environment

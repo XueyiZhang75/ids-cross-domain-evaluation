@@ -1,0 +1,136 @@
+setting,source,target,method,threshold_type,threshold_value,f1,recall,fpr,classification,evidence_status,interpretation,notes
+in_domain,cic,cic,lr,default,0.5,0.31,0.1937,0.0376,observed_nonzero,observed_row,"F1=0.3100, Recall=0.1937, FPR=0.0376",
+in_domain,cic,cic,lr,val_tuned,1.0,0.0016,0.0008,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0008 (near-zero); effectively all-benign prediction,degenerate threshold (thr=1.0)
+in_domain,cic,cic,lr,fixed_fpr,0.726,0.3164,0.1905,0.0092,observed_nonzero,observed_row,"F1=0.3164, Recall=0.1905, FPR=0.0092",
+in_domain,cic,cic,rf,default,0.5,0.0737,0.0383,0.0001,observed_nonzero,observed_row,"F1=0.0737, Recall=0.0383, FPR=0.0001",
+in_domain,cic,cic,rf,val_tuned,0.036,0.3236,0.1934,0.0013,observed_nonzero,observed_row,"F1=0.3236, Recall=0.1934, FPR=0.0013",
+in_domain,cic,cic,rf,fixed_fpr,0.005,0.7438,0.6006,0.0096,observed_nonzero,observed_row,"F1=0.7438, Recall=0.6006, FPR=0.0096",
+in_domain,cic,cic,xgb,default,0.5,0.1256,0.067,0.0001,observed_nonzero,observed_row,"F1=0.1256, Recall=0.0670, FPR=0.0001",
+in_domain,cic,cic,xgb,val_tuned,4.8e-05,0.3212,0.1937,0.0085,observed_nonzero,observed_row,"F1=0.3212, Recall=0.1937, FPR=0.0085",
+in_domain,cic,cic,xgb,fixed_fpr,3.7e-05,0.3205,0.1937,0.0103,observed_nonzero,observed_row,"F1=0.3205, Recall=0.1937, FPR=0.0103",
+in_domain,cic,cic,cnn1d,default,0.5,0.3197,0.1903,0.0004,observed_nonzero,observed_row,"F1=0.3197, Recall=0.1903, FPR=0.0004",
+in_domain,cic,cic,cnn1d,val_tuned,0.316,0.3197,0.1904,0.0004,observed_nonzero,observed_row,"F1=0.3197, Recall=0.1904, FPR=0.0004",
+in_domain,cic,cic,cnn1d,fixed_fpr,0.122,0.9923,0.9888,0.0028,observed_nonzero,observed_row,"F1=0.9923, Recall=0.9888, FPR=0.0028",
+in_domain,cic,cic,lstm,default,0.5,0.3199,0.1905,0.0005,observed_nonzero,observed_row,"F1=0.3199, Recall=0.1905, FPR=0.0005",
+in_domain,cic,cic,lstm,val_tuned,0.619,0.3199,0.1905,0.0005,observed_nonzero,observed_row,"F1=0.3199, Recall=0.1905, FPR=0.0005",
+in_domain,cic,cic,lstm,fixed_fpr,0.002,0.3164,0.1905,0.0092,observed_nonzero,observed_row,"F1=0.3164, Recall=0.1905, FPR=0.0092",
+in_domain,iot,iot,lr,default,0.5,0.0608,0.0323,0.0377,observed_nonzero,observed_row,"F1=0.0608, Recall=0.0323, FPR=0.0377",
+in_domain,iot,iot,lr,val_tuned,0.014,0.0663,0.0357,0.0535,observed_nonzero,observed_row,"F1=0.0663, Recall=0.0357, FPR=0.0535",
+in_domain,iot,iot,lr,fixed_fpr,1.0,0.0014,0.0007,0.0054,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0007 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,iot,iot,rf,default,0.5,0.0024,0.0012,0.0207,observed_nonzero,observed_row,"F1=0.0024, Recall=0.0012, FPR=0.0207",
+in_domain,iot,iot,rf,val_tuned,0.95,0.0,0.0,0.0027,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+in_domain,iot,iot,rf,fixed_fpr,1.0,0.0,0.0,0.0005,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,iot,iot,xgb,default,0.5,0.0588,0.0309,0.0254,observed_nonzero,observed_row,"F1=0.0588, Recall=0.0309, FPR=0.0254",
+in_domain,iot,iot,xgb,val_tuned,0.991,0.0022,0.0011,0.0073,degenerate_threshold,observed_row,Threshold 0.9910 near boundary; recall=0.0011 (near-zero); effectively all-benign prediction,
+in_domain,iot,iot,xgb,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,iot,iot,cnn1d,default,0.5,0.0265,0.0136,0.0187,observed_nonzero,observed_row,"F1=0.0265, Recall=0.0136, FPR=0.0187",
+in_domain,iot,iot,cnn1d,val_tuned,0.99,0.0005,0.0003,0.0062,degenerate_threshold,observed_row,Threshold 0.9900 near boundary; recall=0.0003 (near-zero); effectively all-benign prediction,
+in_domain,iot,iot,cnn1d,fixed_fpr,1.0,0.0,0.0,0.0015,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,iot,iot,lstm,default,0.5,0.4681,0.3251,0.0852,observed_nonzero,observed_row,"F1=0.4681, Recall=0.3251, FPR=0.0852",
+in_domain,iot,iot,lstm,val_tuned,0.915,0.4402,0.2999,0.0836,observed_nonzero,observed_row,"F1=0.4402, Recall=0.2999, FPR=0.0836",
+in_domain,iot,iot,lstm,fixed_fpr,0.937,0.0019,0.001,0.0009,observed_true_zero,observed_row,"Near-zero F1=0.0019, Recall=0.0010; effectively zero detection",
+in_domain,unsw,unsw,lr,default,0.5,0.538,0.8985,0.0865,observed_nonzero,observed_row,"F1=0.5380, Recall=0.8985, FPR=0.0865",
+in_domain,unsw,unsw,lr,val_tuned,0.799,0.641,0.6994,0.029,observed_nonzero,observed_row,"F1=0.6410, Recall=0.6994, FPR=0.0290",
+in_domain,unsw,unsw,lr,fixed_fpr,1.0,0.0282,0.0143,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0143 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,unsw,unsw,rf,default,0.5,0.8301,0.9835,0.0232,observed_nonzero,observed_row,"F1=0.8301, Recall=0.9835, FPR=0.0232",
+in_domain,unsw,unsw,rf,val_tuned,0.492,0.8296,0.9837,0.0233,observed_nonzero,observed_row,"F1=0.8296, Recall=0.9837, FPR=0.0233",
+in_domain,unsw,unsw,rf,fixed_fpr,1.0,0.0035,0.0017,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0017 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,unsw,unsw,xgb,default,0.5,0.8155,0.9876,0.0261,observed_nonzero,observed_row,"F1=0.8155, Recall=0.9876, FPR=0.0261",
+in_domain,unsw,unsw,xgb,val_tuned,0.829,0.8219,0.9516,0.0218,observed_nonzero,observed_row,"F1=0.8219, Recall=0.9516, FPR=0.0218",
+in_domain,unsw,unsw,xgb,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0001 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,unsw,unsw,cnn1d,default,0.5,0.8261,0.9991,0.0252,observed_nonzero,observed_row,"F1=0.8261, Recall=0.9991, FPR=0.0252",
+in_domain,unsw,unsw,cnn1d,val_tuned,0.801,0.8344,0.999,0.0237,observed_nonzero,observed_row,"F1=0.8344, Recall=0.9990, FPR=0.0237",
+in_domain,unsw,unsw,cnn1d,fixed_fpr,1.0,0.0017,0.0009,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0009 (near-zero); effectively all-benign prediction,degenerate threshold
+in_domain,unsw,unsw,lstm,default,0.5,0.8122,0.9973,0.0275,observed_nonzero,observed_row,"F1=0.8122, Recall=0.9973, FPR=0.0275",
+in_domain,unsw,unsw,lstm,val_tuned,0.9,0.8191,0.9855,0.0253,observed_nonzero,observed_row,"F1=0.8191, Recall=0.9855, FPR=0.0253",
+in_domain,unsw,unsw,lstm,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0001 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,cic,iot,lr,default,0.5,0.8921,0.8153,0.0167,observed_nonzero,observed_row,"F1=0.8921, Recall=0.8153, FPR=0.0167",
+cross_domain,cic,iot,lr,fixed_fpr,0.726,0.825,0.7062,0.0076,observed_nonzero,observed_row,"F1=0.8250, Recall=0.7062, FPR=0.0076",CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,rf,default,0.5,0.0,0.0,0.0002,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,cic,iot,rf,fixed_fpr,0.005,0.5662,0.4189,0.0808,observed_nonzero,observed_row,"F1=0.5662, Recall=0.4189, FPR=0.0808",CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,xgb,default,0.5,0.0,0.0,0.0002,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,cic,iot,xgb,fixed_fpr,3.7e-05,0.1346,0.0725,0.0065,observed_nonzero,observed_row,"F1=0.1346, Recall=0.0725, FPR=0.0065",CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,cnn1d,default,0.5,0.0005,0.0003,0.029,observed_true_zero,observed_row,"Near-zero F1=0.0005, Recall=0.0003; effectively zero detection",
+cross_domain,cic,iot,cnn1d,fixed_fpr,0.122,0.0594,0.0314,0.0366,observed_nonzero,observed_row,"F1=0.0594, Recall=0.0314, FPR=0.0366",CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,lstm,default,0.5,0.0,0.0,0.0002,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,cic,iot,lstm,fixed_fpr,0.002,0.0775,0.0406,0.0082,observed_nonzero,observed_row,"F1=0.0775, Recall=0.0406, FPR=0.0082",CIC fixed_fpr applied to IoT
+cross_domain,cic,unsw,lr,default,0.5,0.1429,0.1998,0.0958,observed_nonzero,observed_row,"F1=0.1429, Recall=0.1998, FPR=0.0958",
+cross_domain,cic,unsw,lr,fixed_fpr,0.726,0.0641,0.0753,0.0764,observed_nonzero,observed_row,"F1=0.0641, Recall=0.0753, FPR=0.0764",CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,rf,default,0.5,0.0,0.0,0.0,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,cic,unsw,rf,fixed_fpr,0.005,0.1431,0.4137,0.2621,observed_nonzero,observed_row,"F1=0.1431, Recall=0.4137, FPR=0.2621",CIC fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lr,default,0.5,0.0316,0.1436,0.477,observed_nonzero,observed_row,"F1=0.0316, Recall=0.1436, FPR=0.4770",
+cross_domain,iot,unsw,rf,default,0.5,0.0332,0.166,0.5301,observed_nonzero,observed_row,"F1=0.0332, Recall=0.1660, FPR=0.5301",
+cross_domain,iot,unsw,xgb,default,0.5,0.0438,0.2072,0.495,observed_nonzero,observed_row,"F1=0.0438, Recall=0.2072, FPR=0.4950",
+cross_domain,iot,unsw,cnn1d,default,0.5,0.061,0.0895,0.1108,observed_nonzero,observed_row,"F1=0.0610, Recall=0.0895, FPR=0.1108",
+cross_domain,iot,unsw,lstm,default,0.5,0.1394,0.1079,0.0264,observed_nonzero,observed_row,"F1=0.1394, Recall=0.1079, FPR=0.0264",
+cross_domain,unsw,cic,lr,default,0.5,0.7313,0.8031,0.264,observed_nonzero,observed_row,"F1=0.7313, Recall=0.8031, FPR=0.2640",
+cross_domain,unsw,cic,lr,val_tuned,0.799,0.7403,0.7819,0.2218,observed_nonzero,observed_row,"F1=0.7403, Recall=0.7819, FPR=0.2218",UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,rf,default,0.5,0.001,0.0008,0.3056,observed_true_zero,observed_row,"Near-zero F1=0.0010, Recall=0.0008; effectively zero detection",
+cross_domain,unsw,cic,xgb,default,0.5,0.2038,0.1925,0.4674,observed_nonzero,observed_row,"F1=0.2038, Recall=0.1925, FPR=0.4674",
+cross_domain,unsw,cic,cnn1d,default,0.5,0.0042,0.0033,0.3743,observed_nonzero,observed_row,"F1=0.0042, Recall=0.0033, FPR=0.3743",
+cross_domain,unsw,cic,lstm,default,0.5,0.6307,0.8022,0.4979,observed_nonzero,observed_row,"F1=0.6307, Recall=0.8022, FPR=0.4979",
+cross_domain,unsw,cic,lstm,val_tuned,0.9,0.7197,0.7997,0.2837,observed_nonzero,observed_row,"F1=0.7197, Recall=0.7997, FPR=0.2837",UNSW val_tuned applied to CIC
+cross_domain,cic,iot,lr,val_tuned,1.0,0.00163,0.000817,0.001813,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0008 (near-zero); effectively all-benign prediction,CIC val_tuned applied to IoT
+cross_domain,cic,iot,rf,val_tuned,0.036377,0.001061,0.000544,0.033714,observed_true_zero,observed_row,"Near-zero F1=0.0011, Recall=0.0005; effectively zero detection",CIC val_tuned applied to IoT
+cross_domain,cic,iot,xgb,val_tuned,4.8e-05,0.11313,0.060152,0.00435,observed_nonzero,observed_row,"F1=0.1131, Recall=0.0602, FPR=0.0043",CIC val_tuned applied to IoT
+cross_domain,cic,iot,cnn1d,val_tuned,0.315869,0.000799,0.000408,0.029183,observed_true_zero,observed_row,"Near-zero F1=0.0008, Recall=0.0004; effectively zero detection",CIC val_tuned applied to IoT
+cross_domain,cic,iot,lstm,val_tuned,0.61916,0.0,0.0,0.000181,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,CIC val_tuned applied to IoT
+cross_domain,cic,unsw,lr,val_tuned,1.0,0.0068123758160658,0.0034702139965297,0.0009196678784303,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0035 (near-zero); effectively all-benign prediction,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,rf,val_tuned,0.0363772183033211,0.0708971553610503,0.0585598611914401,0.0356067638969624,observed_nonzero,observed_row,"F1=0.0709, Recall=0.0586, FPR=0.0356",CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,xgb,val_tuned,4.770375380758196e-05,0.0548918796310297,0.052486986697513,0.0515968384247651,observed_nonzero,observed_row,"F1=0.0549, Recall=0.0525, FPR=0.0516",CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,xgb,fixed_fpr,3.700014713103883e-05,0.057084007650434,0.0561017929438982,0.0545727448615726,observed_nonzero,observed_row,"F1=0.0571, Recall=0.0561, FPR=0.0546",CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,cnn1d,val_tuned,0.3158689439296722,0.0002891426919184,0.0001445922498554,0.0,observed_true_zero,observed_row,"Near-zero F1=0.0003, Recall=0.0001; effectively zero detection",CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,cnn1d,fixed_fpr,0.1224086210131645,0.0040392383150605,0.0020242914979757,1.735222412132675e-05,observed_nonzero,observed_row,"F1=0.0040, Recall=0.0020, FPR=0.0000",CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,lstm,val_tuned,0.6191602349281311,0.0,0.0,8.676112060663376e-06,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,lstm,fixed_fpr,0.0023254889529198,0.0582125603864734,0.0348467322151532,0.0097432738441249,observed_nonzero,observed_row,"F1=0.0582, Recall=0.0348, FPR=0.0097",CIC fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lr,val_tuned,0.0142160438028694,0.0396527969137503,0.2080682475419317,0.5572232970961053,observed_nonzero,observed_row,"F1=0.0397, Recall=0.2081, FPR=0.5572",IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,lr,fixed_fpr,0.9999999996952262,0.0219604465905945,0.0516194331983805,0.2189850684111436,observed_nonzero,observed_row,"F1=0.0220, Recall=0.0516, FPR=0.2190",IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,rf,val_tuned,0.95,0.0010454783063251,0.0005783689994216,0.0063509140284055,observed_true_zero,observed_row,"Near-zero F1=0.0010, Recall=0.0006; effectively zero detection",IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,xgb,val_tuned,0.990845263004303,0.0340129662689091,0.1046847888953152,0.303073946503093,observed_nonzero,observed_row,"F1=0.0340, Recall=0.1047, FPR=0.3031",IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,xgb,fixed_fpr,0.9999665021896362,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,cnn1d,val_tuned,0.9898059964179992,0.044517315049436,0.0647773279352226,0.1107332182302466,observed_nonzero,observed_row,"F1=0.0445, Recall=0.0648, FPR=0.1107",IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,cnn1d,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lstm,val_tuned,0.9152078032493592,0.1176693869804516,0.0896471949103528,0.0260456884061114,observed_nonzero,observed_row,"F1=0.1177, Recall=0.0896, FPR=0.0260",IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,lstm,fixed_fpr,0.9372491836547852,0.0002891008962127,0.0001445922498554,8.676112060663376e-06,observed_true_zero,observed_row,"Near-zero F1=0.0003, Recall=0.0001; effectively zero detection",IOT fixed_fpr applied to UNSW
+cross_domain,unsw,cic,lr,fixed_fpr,1.0,0.0,0.0,0.0559343301244232,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,rf,val_tuned,0.4917606094792408,0.0017408785219112,0.0012767380356473,0.3124317780717295,observed_true_zero,observed_row,"Near-zero F1=0.0017, Recall=0.0013; effectively zero detection",UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,xgb,val_tuned,0.8293607831001282,0.1635237810349985,0.1384804790807486,0.3726541007967301,observed_nonzero,observed_row,"F1=0.1635, Recall=0.1385, FPR=0.3727",UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,xgb,fixed_fpr,0.999995231628418,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,cnn1d,val_tuned,0.8013953566551208,0.0020981348304851,0.0014692620251497,0.2678482166235373,observed_nonzero,observed_row,"F1=0.0021, Recall=0.0015, FPR=0.2678",UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,cnn1d,fixed_fpr,1.0,0.0,0.0,3.400469944946392e-05,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,lstm,fixed_fpr,0.9999048709869384,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 0.9999 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,UNSW fixed_fpr applied to CIC
+cross_domain,cic,unsw,xgb,default,0.5,0.0003,0.0001,0.0001,observed_true_zero,observed_row,"Near-zero F1=0.0003, Recall=0.0001; effectively zero detection",
+cross_domain,cic,unsw,cnn1d,default,0.5,0.0,0.0,0.0,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,cic,unsw,lstm,default,0.5,0.0,0.0,0.0,observed_true_zero,observed_row,Zero recall at this threshold; model produces no (or negligible) positive predictions,
+cross_domain,unsw,iot,lr,default,0.5,0.8601,0.8608,0.1874,observed_nonzero,observed_row,"F1=0.8601, Recall=0.8608, FPR=0.1874",
+cross_domain,unsw,iot,lr,val_tuned,0.79921,0.8643,0.8575,0.1689,observed_nonzero,observed_row,"F1=0.8643, Recall=0.8575, FPR=0.1689",
+cross_domain,unsw,iot,lr,fixed_fpr,1.0,0.0041,0.002,0.0013,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0020 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,unsw,iot,rf,default,0.5,0.3479,0.2205,0.0625,observed_nonzero,observed_row,"F1=0.3479, Recall=0.2205, FPR=0.0625",
+cross_domain,unsw,iot,rf,val_tuned,0.491761,0.3518,0.2236,0.0634,observed_nonzero,observed_row,"F1=0.3518, Recall=0.2236, FPR=0.0634",
+cross_domain,unsw,iot,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,unsw,iot,xgb,default,0.5,0.8081,0.84,0.3183,observed_nonzero,observed_row,"F1=0.8081, Recall=0.8400, FPR=0.3183",
+cross_domain,unsw,iot,xgb,val_tuned,0.829361,0.8153,0.7489,0.1176,observed_nonzero,observed_row,"F1=0.8153, Recall=0.7489, FPR=0.1176",
+cross_domain,unsw,iot,xgb,fixed_fpr,0.999995,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,unsw,iot,cnn1d,default,0.5,0.7891,0.7573,0.2159,observed_nonzero,observed_row,"F1=0.7891, Recall=0.7573, FPR=0.2159",
+cross_domain,unsw,iot,cnn1d,val_tuned,0.801395,0.5369,0.4179,0.1849,observed_nonzero,observed_row,"F1=0.5369, Recall=0.4179, FPR=0.1849",
+cross_domain,unsw,iot,cnn1d,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0001 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,unsw,iot,lstm,default,0.5,0.7074,0.9249,0.9192,observed_nonzero,observed_row,"F1=0.7074, Recall=0.9249, FPR=0.9192",
+cross_domain,unsw,iot,lstm,val_tuned,0.900235,0.4586,0.4581,0.7185,observed_nonzero,observed_row,"F1=0.4586, Recall=0.4581, FPR=0.7185",
+cross_domain,unsw,iot,lstm,fixed_fpr,0.999905,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 0.9999 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,iot,cic,lr,default,0.5,0.0863,0.0497,0.0683,observed_nonzero,observed_row,"F1=0.0863, Recall=0.0497, FPR=0.0683",
+cross_domain,iot,cic,lr,val_tuned,0.014216,0.0809,0.0501,0.1269,observed_nonzero,observed_row,"F1=0.0809, Recall=0.0501, FPR=0.1269",
+cross_domain,iot,cic,lr,fixed_fpr,1.0,0.0019,0.001,0.0131,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0010 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,iot,cic,rf,default,0.5,0.0004,0.0002,0.103,observed_nonzero,observed_row,"F1=0.0004, Recall=0.0002, FPR=0.1030",
+cross_domain,iot,cic,rf,val_tuned,0.95,0.0,0.0,0.0107,observed_true_zero,observed_row,Recall=0.0000 at threshold 0.9500; no attacks detected; true zero performance,
+cross_domain,iot,cic,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,iot,cic,xgb,default,0.5,0.0004,0.0002,0.0987,observed_nonzero,observed_row,"F1=0.0004, Recall=0.0002, FPR=0.0987",
+cross_domain,iot,cic,xgb,val_tuned,0.990845,0.0004,0.0002,0.0507,degenerate_threshold,observed_row,Threshold 0.9908 near boundary; recall=0.0002 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,iot,cic,xgb,fixed_fpr,0.999967,0.0,0.0,0.0,degenerate_threshold,observed_row,Threshold 1.0000 near boundary; recall=0.0000 (near-zero); effectively all-benign prediction,degenerate threshold
+cross_domain,iot,cic,cnn1d,default,0.5,0.2327,0.1655,0.1727,observed_nonzero,observed_row,"F1=0.2327, Recall=0.1655, FPR=0.1727",
+cross_domain,iot,cic,cnn1d,val_tuned,0.989806,0.1867,0.1148,0.0771,observed_nonzero,observed_row,"F1=0.1867, Recall=0.1148, FPR=0.0771",
+cross_domain,iot,cic,cnn1d,fixed_fpr,1.0,0.094,0.0497,0.0048,observed_nonzero,observed_row,"F1=0.0940, Recall=0.0497, FPR=0.0048",
+cross_domain,iot,cic,lstm,default,0.5,0.2607,0.1914,0.186,observed_nonzero,observed_row,"F1=0.2607, Recall=0.1914, FPR=0.1860",
+cross_domain,iot,cic,lstm,val_tuned,0.915208,0.2653,0.1914,0.1689,observed_nonzero,observed_row,"F1=0.2653, Recall=0.1914, FPR=0.1689",
+cross_domain,iot,cic,lstm,fixed_fpr,0.937249,0.0,0.0,0.0149,observed_true_zero,observed_row,Recall=0.0000 at threshold 0.9372; no attacks detected; true zero performance,

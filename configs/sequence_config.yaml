@@ -1,0 +1,37 @@
+# =============================================================================
+# sequence_config.yaml — Packet-level sequence construction settings (for DL)
+# =============================================================================
+# Controls how raw PCAP is converted into fixed-length packet sequences
+# suitable for 1D-CNN and LSTM models.
+# =============================================================================
+
+# --- Sequence definition ---
+sequence:
+  # Number of packets per sample (K)
+  max_packets: 32               # TODO: tune — placeholder for initial comparison
+
+  # What to do when a flow has fewer or more than K packets
+  padding: "zero"               # pad short flows with zero vectors
+  truncation: "head"            # keep first K packets; options: head | tail
+
+# --- Packet-level fields ---
+# Each packet is represented by a minimal feature vector.
+# Start with a conservative set; additional fields (ports, TTL, TCP flags,
+# payload bytes, etc.) may be added later after baseline results.
+# Exact representation is TBD and subject to refinement.
+packet_fields:
+  - "packet_length"             # IP packet length (bytes)
+  - "direction"                 # 1 = forward (client→server), -1 = backward
+  - "inter_arrival_time"        # seconds since previous packet in the flow
+  - "protocol"                  # transport-layer protocol (encoding below)
+
+# --- Protocol encoding ---
+protocol_encoding:
+  method: "integer"             # options: integer | one_hot
+  # Integer encoding is simpler and sufficient for a small number of protocols.
+  # Switch to one-hot if categorical treatment improves results.
+
+# --- Normalization ---
+normalization:
+  method: "standard"            # options: standard | minmax | none
+  fit_on: "train"               # same leakage-prevention rule as feature_config

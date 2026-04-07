@@ -1,0 +1,38 @@
+path,file_type,public_reason,included_in_release,notes
+README.md,markdown,Primary public entry point,YES,D:/ids path genericized to <external_data_root>/
+requirements.txt,text,Reproducibility,YES,
+DECISIONS.md,markdown,Design decisions D1-D16,YES,
+reports/final/main_report.md,markdown,Complete final research report,YES,
+reports/final/threshold_portability.md,markdown,Threshold portability analysis,YES,
+reports/final/family_transfer.md,markdown,Attack family transfer,YES,
+reports/final/complementarity.md,markdown,Complementarity and fusion,YES,
+reports/final/external_benign_robustness.md,markdown,External benign analysis,YES,
+reports/final/degradation_mechanisms.md,markdown,Degradation analysis,YES,
+reports/final/multisource_transfer.md,markdown,Multisource transfer,YES,
+reports/final/statistical_robustness.md,markdown,Statistical robustness,YES,
+reports/final/final_results_master_table.csv,csv,Core results (46 rows),YES,
+reports/final/final_threshold_portability_table.csv,csv,Portability (135 rows),YES,
+reports/final/final_threshold_portability_classification.csv,csv,Portability labels,YES,
+reports/final/project_summary_table.csv,csv,7-section summary,YES,
+reports/final/confidence_summary.csv,csv,Confidence tiers (23 claims),YES,
+reports/final/final_bootstrap_ci_results.csv,csv,Bootstrap CI n=1000,YES,
+reports/final/final_significance_tests.csv,csv,Significance tests,YES,
+reports/final/final_dl_seed_stability_results.csv,csv,Seed stability,YES,
+reports/final/final_lightweight_fusion_results.csv,csv,Fusion results,YES,
+reports/final/final_complementarity_matrix.csv,csv,Complementarity matrix,YES,
+reports/final/final_out_of_domain_benign_metrics.csv,csv,Benign FPR metrics,YES,
+reports/final/final_out_of_domain_benign_false_alarm_patterns.csv,csv,Benign alarm patterns,YES,
+reports/final/final_feature_drift_summary.csv,csv,Feature drift KS,YES,
+reports/final/final_score_drift_summary.csv,csv,Score drift,YES,
+reports/final/final_shared_subset_degradation.csv,csv,Shared subset degradation,YES,
+reports/final/final_multisource_transfer_results.csv,csv,Multisource results,YES,
+reports/final/final_multisource_transfer_target_breakdown.csv,csv,Multisource breakdown,YES,
+reports/figures/final/ (11 PNGs),png,Final figures,YES,fig1-9 + app_a1-a2
+scripts/final/generate_final_figures.py,python,Figure reproduction,YES,
+src/,directory,Pipeline library,YES,
+configs/,directory,YAML configuration,YES,
+docs/ (public only),markdown,Protocol docs,YES,flow_schema + label_schema + protocol docs; NO internal/
+docs/internal/,directory,Internal audit history,NO,Excluded from public release
+archive/,directory,Internal archive,NO,Excluded
+data/,directory,Data directory,NO,External data not in repo
+reports/predictions/,directory,Large prediction sidecars,NO,13-21MB each; reproducible from frozen models

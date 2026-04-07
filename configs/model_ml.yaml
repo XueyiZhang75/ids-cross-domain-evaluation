@@ -1,0 +1,39 @@
+# =============================================================================
+# model_ml.yaml — Traditional ML model hyperparameters
+# =============================================================================
+# Default values are starting points for initial experiments.
+# Tuned values should be recorded in EXPERIMENT_LOG.md.
+# =============================================================================
+
+logistic_regression:
+  solver: "lbfgs"
+  max_iter: 1000
+  C: 1.0                       # inverse regularization strength
+  class_weight: "balanced"     # handle class imbalance
+  random_state: 42
+
+random_forest:
+  n_estimators: 200
+  max_depth: null               # null = unlimited (sklearn default)
+  min_samples_split: 5
+  min_samples_leaf: 2
+  class_weight: "balanced"
+  n_jobs: -1                    # use all CPU cores
+  random_state: 42
+
+xgboost:
+  n_estimators: 300
+  max_depth: 6
+  learning_rate: 0.1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  scale_pos_weight: 1.0        # TODO: set based on class ratio in training data
+  eval_metric: "logloss"
+  early_stopping_rounds: 20    # requires a validation set during training
+  random_state: 42
+
+# --- Shared settings ---
+shared:
+  task: "binary"                # binary classification: benign vs attack
+  probability_output: true      # all models should output probability scores
+  # Probability scores are needed for threshold analysis (E6) and fusion (E7).

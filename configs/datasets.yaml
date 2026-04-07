@@ -1,0 +1,108 @@
+# =============================================================================
+# datasets.yaml — Dataset registry
+# =============================================================================
+# Each entry describes one dataset used in the project.
+#
+# DATA PATH POLICY
+# Large data (raw PCAPs, label reference CSVs, interim artifacts) lives
+# OUTSIDE the git repository, on a separate data drive.
+# External data root: D:\ids_project_data\
+# =============================================================================
+
+datasets:
+
+  cicids2017:
+    full_name: "CIC-IDS2017"
+    description: "Multi-day capture from the Canadian Institute for Cybersecurity (2017)"
+    role: "In-domain training & evaluation"
+
+    root_dir: "D:/ids_project_data/cicids2017"
+    pcap_dir: "D:/ids_project_data/cicids2017/pcap"
+    label_ref: "D:/ids_project_data/cicids2017/label_ref"
+    notes: >
+      Five capture days (Monday–Friday). Each day has separate PCAP files.
+      Public CSV is used only for label mapping, not as direct training input.
+
+  # CSE-CIC-IDS2018: formally removed per D13 (2026-03-25)
+  # Replaced by IoT-23. See DECISIONS.md D13 for rationale.
+
+  iot23:
+    full_name: "IoT-23 (Aposemat IoT-23)"
+    description: "CTU/Stratosphere Lab IoT traffic captures: 20 malware + 3 benign scenarios"
+    role: "Cross-domain evaluation (second dataset)"
+
+    root_dir: "D:/ids_project_data/iot23"
+    raw_dir:  "D:/ids_project_data/iot23/raw"
+    labels_dir: "D:/ids_project_data/iot23/labels"
+    docs_dir: "D:/ids_project_data/iot23/docs"
+    source_url: "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset/IndividualScenarios/"
+    zenodo_doi: "10.5281/zenodo.4743746"
+    full_archive_url: "https://mcfp.felk.cvut.cz/publicDatasets/IoT-23-Dataset/iot_23_datasets_full.tar.gz"
+    full_archive_size_gb: 21.5
+    intake_status: "Phase 4 Step 2 complete (2026-03-25); Subset A 8 scenarios processed"
+    processed_master: "D:/ids_project_data/iot23/processed/iot23_master.parquet"
+    processed_sidecar: "D:/ids_project_data/iot23/processed/iot23_split_sidecar.csv"
+    notes: >
+      23 scenarios (20 IoT malware + 3 benign honeypot). Each scenario has raw PCAP +
+      Zeek conn.log.labeled (full 5-tuple + label + detailed-label).
+      Malware families: Mirai, Torii, Hajime, Gagfyt, Kenjiro.
+      label col: 'label' (Benign/Malicious); 'detailed-label' for per-family breakdown.
+      Full archive 21.5 GB compressed; individual scenario PCAPs downloadable per-scenario.
+      conn.log.labeled files serve as label references (D1).
+
+  unsw_nb15:
+    full_name: "UNSW-NB15"
+    description: "UNSW Sydney network testbed capture, Jan–Feb 2015"
+    role: "In-domain & cross-domain evaluation"
+
+    root_dir: "D:/ids_project_data/unsw_nb15"
+    raw_dir:  "D:/ids_project_data/unsw_nb15/raw"
+    labels_dir: "D:/ids_project_data/unsw_nb15/labels"
+    docs_dir: "D:/ids_project_data/unsw_nb15/docs"
+    flows_dir: "D:/ids_project_data/unsw_nb15/flows"
+    processed_dir: "D:/ids_project_data/unsw_nb15/processed"
+    source_url: "https://research.unsw.edu.au/projects/unsw-nb15-dataset"
+    sharepoint_key: "e=gKWkLS"
+    doi: "10.21227/8vf7-s525"
+    intake_status: "Phase 5 Step 1 complete (2026-03-31); formal subset v2 (D16) active"
+    processed_master: "D:/ids_project_data/unsw_nb15/processed/unsw_nb15_master.parquet"
+    processed_sidecar: "D:/ids_project_data/unsw_nb15/processed/unsw_nb15_split_sidecar.csv"
+    archived_v1_master: "D:/ids_project_data/unsw_nb15/processed/unsw_nb15_master_v1_archive.parquet"
+    formal_split_version: "v2 (D16, supersedes D14)"
+    formal_subset:
+      train: {folder: "pcaps_22-1-2015", files: "1-6"}
+      val:   {folder: "pcaps_22-1-2015", files: "7-9"}
+      test:  {folder: "pcaps_17-2-2015", files: "24-26"}
+    split_summary:
+      train_flows: 115469
+      val_flows: 57955
+      test_flows: 122175
+      train_attack: 7516
+      val_attack: 3126
+      test_attack: 6916
+    notes: >
+      UNSW Sydney testbed capture; 2 capture dates: Jan 22, 2015 and Feb 17-18, 2015.
+      Raw data: 80 PCAP chunks (~107 GB total); formal subset: 24 files (~25.5 GB).
+      Label refs: 4 CSV files (2,540,047 rows total) with 49-column schema, no header.
+      9 attack categories: Generic, Exploits, Fuzzers, DoS, Reconnaissance,
+        Backdoors/Backdoor, Analysis, Shellcode, Worms.
+      proto field is a string in CSV (tcp/udp/ospf/...); mapped to int for join.
+      v2 formal split (D16): train=Jan22/1-6, val=Jan22/7-9, test=Feb/24-26.
+      Val now has attacks (3,126 / 5.4%). 27.pcap excluded (past CSV time window).
+      See decisions D16 (split protocol v2, supersedes D14) and D15 (join protocol, unchanged).
+
+  local_benign:
+    full_name: "Local Benign Traffic"
+    description: "Small-scale locally collected clean traffic"
+    role: "Out-of-domain benign testing (E5)"
+
+    root_dir: "D:/ids_project_data/local_benign"
+    pcap_dir: "D:/ids_project_data/local_benign/pcap"
+    label_ref: null             # no label file needed — all traffic is benign
+    notes: >
+      Planned collection. Used exclusively for out-of-domain benign
+      false-positive profiling. Not used in any training split.
+
+# --- Shared output paths for intermediate artifacts ---
+interim_root: "D:/ids_project_data/interim"
+processed_root: "D:/ids_project_data/processed"

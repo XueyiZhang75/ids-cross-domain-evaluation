@@ -1,0 +1,54 @@
+# =============================================================================
+# model_dl.yaml — Deep learning model architecture and training settings
+# =============================================================================
+# Placeholder defaults. Actual values will be refined during implementation.
+# =============================================================================
+
+# --- 1D-CNN ---
+cnn_1d:
+  # Architecture
+  num_conv_blocks: 2
+  filters: [64, 128]            # filters per conv block
+  kernel_size: 3
+  pool_size: 2
+  dropout: 0.3
+  fc_units: 64                  # dense layer before output
+
+# --- LSTM ---
+lstm:
+  # Architecture
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.3
+  bidirectional: false
+  fc_units: 64                  # dense layer before output
+
+# --- Training ---
+training:
+  batch_size: 256
+  max_epochs: 50
+  optimizer: "adam"
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  class_weight: "balanced"      # or null to disable
+  # NOTE: exact class weights should be computed from training split at runtime.
+
+  # Learning rate scheduler
+  scheduler:
+    type: "reduce_on_plateau"   # options: reduce_on_plateau | step | cosine | none
+    patience: 5
+    factor: 0.5
+
+  # Early stopping
+  early_stopping:
+    enabled: true
+    patience: 10
+    monitor: "val_loss"
+    min_delta: 0.001
+
+# --- Shared settings ---
+shared:
+  task: "binary"
+  probability_output: true      # output sigmoid probabilities for threshold analysis
+  random_seed: 42
+  device: "auto"                # auto | cpu | cuda

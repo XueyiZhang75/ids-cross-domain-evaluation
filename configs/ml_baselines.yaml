@@ -1,0 +1,93 @@
+# ML Baselines Configuration — CIC-IDS2017 Phase 3 Step 2
+# Version: 1.0  Frozen: 2026-03-23
+# Governed by: docs/ml_baseline_protocol.md
+
+dataset:
+  master_parquet: "D:/ids_project_data/processed/cicids2017/cicids2017_flows_master.parquet"
+  split_assignment_csv: "D:/ids_project_data/processed/cicids2017/cicids2017_split_assignment.csv"
+  models_dir: "D:/ids_project_data/models/cicids2017"
+  predictions_dir: "D:/ids_project_data/processed/cicids2017"
+
+features:
+  columns:
+    - duration_s
+    - packet_count_total
+    - bytes_total
+    - packet_count_fwd
+    - packet_count_bwd
+    - bytes_fwd
+    - bytes_bwd
+    - protocol
+    - is_tcp
+    - is_udp
+    - bytes_per_packet
+    - bytes_per_packet_fwd
+    - bytes_per_packet_bwd
+    - packets_per_second
+    - bytes_per_second
+    - fwd_packet_ratio
+    - bwd_packet_ratio
+    - fwd_byte_ratio
+    - bwd_byte_ratio
+  label_column: "binary_label"
+  positive_class: "attack"
+  negative_class: "benign"
+
+evaluation:
+  default_threshold: 0.5
+  fixed_fpr_budget: 0.01        # 1% FPR budget on val; frozen as D10
+  val_tuned_criterion: "max_f1" # threshold selection criterion on val
+
+models:
+  logistic_regression:
+    enabled: true
+    requires_scaling: true
+    class_weight: "balanced"
+    C: 1.0
+    max_iter: 1000
+    solver: "lbfgs"
+    random_state: 42
+    multi_class: "ovr"
+
+  random_forest:
+    enabled: true
+    requires_scaling: false
+    class_weight: "balanced"
+    n_estimators: 200
+    max_depth: 15
+    min_samples_leaf: 5
+    n_jobs: -1
+    random_state: 42
+
+  xgboost:
+    enabled: true
+    requires_scaling: false
+    # scale_pos_weight computed at runtime from train split imbalance ratio
+    n_estimators: 300
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    tree_method: "hist"   # fast histogram method
+    eval_metric: "auc"
+    random_state: 42
+    verbosity: 0
+
+output:
+  save_models: true
+  save_preprocessors: true
+  save_predictions: true
+  save_thresholds: true
+  prediction_sidecar_columns:
+    - global_flow_id
+    - day
+    - split
+    - binary_label
+    - coarse_family
+    - pred_score
+    - pred_label_default
+    - pred_label_val_tuned
+    - pred_label_fixed_fpr
+    - is_train
+    - is_val
+    - is_test

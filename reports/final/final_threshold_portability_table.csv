@@ -1,0 +1,136 @@
+setting,source,target,method,threshold_type,threshold_value,f1,recall,fpr,notes
+in_domain,cic,cic,lr,default,0.5,0.31,0.1937,0.0376,
+in_domain,cic,cic,lr,val_tuned,1.0,0.0016,0.0008,0.0,degenerate threshold (thr=1.0)
+in_domain,cic,cic,lr,fixed_fpr,0.726,0.3164,0.1905,0.0092,
+in_domain,cic,cic,rf,default,0.5,0.0737,0.0383,0.0001,
+in_domain,cic,cic,rf,val_tuned,0.036,0.3236,0.1934,0.0013,
+in_domain,cic,cic,rf,fixed_fpr,0.005,0.7438,0.6006,0.0096,
+in_domain,cic,cic,xgb,default,0.5,0.1256,0.067,0.0001,
+in_domain,cic,cic,xgb,val_tuned,4.8e-05,0.3212,0.1937,0.0085,
+in_domain,cic,cic,xgb,fixed_fpr,3.7e-05,0.3205,0.1937,0.0103,
+in_domain,cic,cic,cnn1d,default,0.5,0.3197,0.1903,0.0004,
+in_domain,cic,cic,cnn1d,val_tuned,0.316,0.3197,0.1904,0.0004,
+in_domain,cic,cic,cnn1d,fixed_fpr,0.122,0.9923,0.9888,0.0028,
+in_domain,cic,cic,lstm,default,0.5,0.3199,0.1905,0.0005,
+in_domain,cic,cic,lstm,val_tuned,0.619,0.3199,0.1905,0.0005,
+in_domain,cic,cic,lstm,fixed_fpr,0.002,0.3164,0.1905,0.0092,
+in_domain,iot,iot,lr,default,0.5,0.0608,0.0323,0.0377,
+in_domain,iot,iot,lr,val_tuned,0.014,0.0663,0.0357,0.0535,
+in_domain,iot,iot,lr,fixed_fpr,1.0,0.0014,0.0007,0.0054,degenerate threshold
+in_domain,iot,iot,rf,default,0.5,0.0024,0.0012,0.0207,
+in_domain,iot,iot,rf,val_tuned,0.95,0.0,0.0,0.0027,
+in_domain,iot,iot,rf,fixed_fpr,1.0,0.0,0.0,0.0005,degenerate threshold
+in_domain,iot,iot,xgb,default,0.5,0.0588,0.0309,0.0254,
+in_domain,iot,iot,xgb,val_tuned,0.991,0.0022,0.0011,0.0073,
+in_domain,iot,iot,xgb,fixed_fpr,1.0,0.0,0.0,0.0,degenerate threshold
+in_domain,iot,iot,cnn1d,default,0.5,0.0265,0.0136,0.0187,
+in_domain,iot,iot,cnn1d,val_tuned,0.99,0.0005,0.0003,0.0062,
+in_domain,iot,iot,cnn1d,fixed_fpr,1.0,0.0,0.0,0.0015,degenerate threshold
+in_domain,iot,iot,lstm,default,0.5,0.4681,0.3251,0.0852,
+in_domain,iot,iot,lstm,val_tuned,0.915,0.4402,0.2999,0.0836,
+in_domain,iot,iot,lstm,fixed_fpr,0.937,0.0019,0.001,0.0009,
+in_domain,unsw,unsw,lr,default,0.5,0.538,0.8985,0.0865,
+in_domain,unsw,unsw,lr,val_tuned,0.799,0.641,0.6994,0.029,
+in_domain,unsw,unsw,lr,fixed_fpr,1.0,0.0282,0.0143,0.0,degenerate threshold
+in_domain,unsw,unsw,rf,default,0.5,0.8301,0.9835,0.0232,
+in_domain,unsw,unsw,rf,val_tuned,0.492,0.8296,0.9837,0.0233,
+in_domain,unsw,unsw,rf,fixed_fpr,1.0,0.0035,0.0017,0.0,degenerate threshold
+in_domain,unsw,unsw,xgb,default,0.5,0.8155,0.9876,0.0261,
+in_domain,unsw,unsw,xgb,val_tuned,0.829,0.8219,0.9516,0.0218,
+in_domain,unsw,unsw,xgb,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate threshold
+in_domain,unsw,unsw,cnn1d,default,0.5,0.8261,0.9991,0.0252,
+in_domain,unsw,unsw,cnn1d,val_tuned,0.801,0.8344,0.999,0.0237,
+in_domain,unsw,unsw,cnn1d,fixed_fpr,1.0,0.0017,0.0009,0.0,degenerate threshold
+in_domain,unsw,unsw,lstm,default,0.5,0.8122,0.9973,0.0275,
+in_domain,unsw,unsw,lstm,val_tuned,0.9,0.8191,0.9855,0.0253,
+in_domain,unsw,unsw,lstm,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate threshold
+cross_domain,cic,iot,lr,default,0.5,0.8921,0.8153,0.0167,
+cross_domain,cic,iot,lr,fixed_fpr,0.726,0.825,0.7062,0.0076,CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,rf,default,0.5,0.0,0.0,0.0002,
+cross_domain,cic,iot,rf,fixed_fpr,0.005,0.5662,0.4189,0.0808,CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,xgb,default,0.5,0.0,0.0,0.0002,
+cross_domain,cic,iot,xgb,fixed_fpr,3.7e-05,0.1346,0.0725,0.0065,CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,cnn1d,default,0.5,0.0005,0.0003,0.029,
+cross_domain,cic,iot,cnn1d,fixed_fpr,0.122,0.0594,0.0314,0.0366,CIC fixed_fpr applied to IoT
+cross_domain,cic,iot,lstm,default,0.5,0.0,0.0,0.0002,
+cross_domain,cic,iot,lstm,fixed_fpr,0.002,0.0775,0.0406,0.0082,CIC fixed_fpr applied to IoT
+cross_domain,cic,unsw,lr,default,0.5,0.1429,0.1998,0.0958,
+cross_domain,cic,unsw,lr,fixed_fpr,0.726,0.0641,0.0753,0.0764,CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,rf,default,0.5,0.0,0.0,0.0,
+cross_domain,cic,unsw,rf,fixed_fpr,0.005,0.1431,0.4137,0.2621,CIC fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lr,default,0.5,0.0316,0.1436,0.477,
+cross_domain,iot,unsw,rf,default,0.5,0.0332,0.166,0.5301,
+cross_domain,iot,unsw,xgb,default,0.5,0.0438,0.2072,0.495,
+cross_domain,iot,unsw,cnn1d,default,0.5,0.061,0.0895,0.1108,
+cross_domain,iot,unsw,lstm,default,0.5,0.1394,0.1079,0.0264,
+cross_domain,unsw,cic,lr,default,0.5,0.7313,0.8031,0.264,
+cross_domain,unsw,cic,lr,val_tuned,0.799,0.7403,0.7819,0.2218,UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,rf,default,0.5,0.001,0.0008,0.3056,
+cross_domain,unsw,cic,xgb,default,0.5,0.2038,0.1925,0.4674,
+cross_domain,unsw,cic,cnn1d,default,0.5,0.0042,0.0033,0.3743,
+cross_domain,unsw,cic,lstm,default,0.5,0.6307,0.8022,0.4979,
+cross_domain,unsw,cic,lstm,val_tuned,0.9,0.7197,0.7997,0.2837,UNSW val_tuned applied to CIC
+cross_domain,cic,iot,lr,val_tuned,1.0,0.00163,0.000817,0.001813,CIC val_tuned applied to IoT
+cross_domain,cic,iot,rf,val_tuned,0.036377,0.001061,0.000544,0.033714,CIC val_tuned applied to IoT
+cross_domain,cic,iot,xgb,val_tuned,4.8e-05,0.11313,0.060152,0.00435,CIC val_tuned applied to IoT
+cross_domain,cic,iot,cnn1d,val_tuned,0.315869,0.000799,0.000408,0.029183,CIC val_tuned applied to IoT
+cross_domain,cic,iot,lstm,val_tuned,0.61916,0.0,0.0,0.000181,CIC val_tuned applied to IoT
+cross_domain,cic,unsw,lr,val_tuned,1.0,0.0068123758160658,0.0034702139965297,0.0009196678784303,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,rf,val_tuned,0.0363772183033211,0.0708971553610503,0.0585598611914401,0.0356067638969624,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,xgb,val_tuned,4.770375380758196e-05,0.0548918796310297,0.052486986697513,0.0515968384247651,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,xgb,fixed_fpr,3.700014713103883e-05,0.057084007650434,0.0561017929438982,0.0545727448615726,CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,cnn1d,val_tuned,0.3158689439296722,0.0002891426919184,0.0001445922498554,0.0,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,cnn1d,fixed_fpr,0.1224086210131645,0.0040392383150605,0.0020242914979757,1.735222412132675e-05,CIC fixed_fpr applied to UNSW
+cross_domain,cic,unsw,lstm,val_tuned,0.6191602349281311,0.0,0.0,8.676112060663376e-06,CIC val_tuned applied to UNSW
+cross_domain,cic,unsw,lstm,fixed_fpr,0.0023254889529198,0.0582125603864734,0.0348467322151532,0.0097432738441249,CIC fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lr,val_tuned,0.0142160438028694,0.0396527969137503,0.2080682475419317,0.5572232970961053,IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,lr,fixed_fpr,0.9999999996952262,0.0219604465905945,0.0516194331983805,0.2189850684111436,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,rf,val_tuned,0.95,0.0010454783063251,0.0005783689994216,0.0063509140284055,IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,rf,fixed_fpr,1.0,0.0,0.0,0.0,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,xgb,val_tuned,0.990845263004303,0.0340129662689091,0.1046847888953152,0.303073946503093,IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,xgb,fixed_fpr,0.9999665021896362,0.0,0.0,0.0,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,cnn1d,val_tuned,0.9898059964179992,0.044517315049436,0.0647773279352226,0.1107332182302466,IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,cnn1d,fixed_fpr,1.0,0.0,0.0,0.0,IOT fixed_fpr applied to UNSW
+cross_domain,iot,unsw,lstm,val_tuned,0.9152078032493592,0.1176693869804516,0.0896471949103528,0.0260456884061114,IOT val_tuned applied to UNSW
+cross_domain,iot,unsw,lstm,fixed_fpr,0.9372491836547852,0.0002891008962127,0.0001445922498554,8.676112060663376e-06,IOT fixed_fpr applied to UNSW
+cross_domain,unsw,cic,lr,fixed_fpr,1.0,0.0,0.0,0.0559343301244232,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,rf,val_tuned,0.4917606094792408,0.0017408785219112,0.0012767380356473,0.3124317780717295,UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,rf,fixed_fpr,1.0,0.0,0.0,0.0,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,xgb,val_tuned,0.8293607831001282,0.1635237810349985,0.1384804790807486,0.3726541007967301,UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,xgb,fixed_fpr,0.999995231628418,0.0,0.0,0.0,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,cnn1d,val_tuned,0.8013953566551208,0.0020981348304851,0.0014692620251497,0.2678482166235373,UNSW val_tuned applied to CIC
+cross_domain,unsw,cic,cnn1d,fixed_fpr,1.0,0.0,0.0,3.400469944946392e-05,UNSW fixed_fpr applied to CIC
+cross_domain,unsw,cic,lstm,fixed_fpr,0.9999048709869384,0.0,0.0,0.0,UNSW fixed_fpr applied to CIC
+cross_domain,cic,unsw,xgb,default,0.5,0.0003,0.0001,0.0001,
+cross_domain,cic,unsw,cnn1d,default,0.5,0.0,0.0,0.0,
+cross_domain,cic,unsw,lstm,default,0.5,0.0,0.0,0.0,
+cross_domain,unsw,iot,lr,default,0.5,0.8601,0.8608,0.1874,
+cross_domain,unsw,iot,lr,val_tuned,0.79921,0.8643,0.8575,0.1689,
+cross_domain,unsw,iot,lr,fixed_fpr,1.0,0.0041,0.002,0.0013,degenerate threshold
+cross_domain,unsw,iot,rf,default,0.5,0.3479,0.2205,0.0625,
+cross_domain,unsw,iot,rf,val_tuned,0.491761,0.3518,0.2236,0.0634,
+cross_domain,unsw,iot,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate threshold
+cross_domain,unsw,iot,xgb,default,0.5,0.8081,0.84,0.3183,
+cross_domain,unsw,iot,xgb,val_tuned,0.829361,0.8153,0.7489,0.1176,
+cross_domain,unsw,iot,xgb,fixed_fpr,0.999995,0.0,0.0,0.0,degenerate threshold
+cross_domain,unsw,iot,cnn1d,default,0.5,0.7891,0.7573,0.2159,
+cross_domain,unsw,iot,cnn1d,val_tuned,0.801395,0.5369,0.4179,0.1849,
+cross_domain,unsw,iot,cnn1d,fixed_fpr,1.0,0.0003,0.0001,0.0,degenerate threshold
+cross_domain,unsw,iot,lstm,default,0.5,0.7074,0.9249,0.9192,
+cross_domain,unsw,iot,lstm,val_tuned,0.900235,0.4586,0.4581,0.7185,
+cross_domain,unsw,iot,lstm,fixed_fpr,0.999905,0.0,0.0,0.0,degenerate threshold
+cross_domain,iot,cic,lr,default,0.5,0.0863,0.0497,0.0683,
+cross_domain,iot,cic,lr,val_tuned,0.014216,0.0809,0.0501,0.1269,
+cross_domain,iot,cic,lr,fixed_fpr,1.0,0.0019,0.001,0.0131,degenerate threshold
+cross_domain,iot,cic,rf,default,0.5,0.0004,0.0002,0.103,
+cross_domain,iot,cic,rf,val_tuned,0.95,0.0,0.0,0.0107,
+cross_domain,iot,cic,rf,fixed_fpr,1.0,0.0,0.0,0.0,degenerate threshold
+cross_domain,iot,cic,xgb,default,0.5,0.0004,0.0002,0.0987,
+cross_domain,iot,cic,xgb,val_tuned,0.990845,0.0004,0.0002,0.0507,degenerate threshold
+cross_domain,iot,cic,xgb,fixed_fpr,0.999967,0.0,0.0,0.0,degenerate threshold
+cross_domain,iot,cic,cnn1d,default,0.5,0.2327,0.1655,0.1727,
+cross_domain,iot,cic,cnn1d,val_tuned,0.989806,0.1867,0.1148,0.0771,
+cross_domain,iot,cic,cnn1d,fixed_fpr,1.0,0.094,0.0497,0.0048,
+cross_domain,iot,cic,lstm,default,0.5,0.2607,0.1914,0.186,
+cross_domain,iot,cic,lstm,val_tuned,0.915208,0.2653,0.1914,0.1689,
+cross_domain,iot,cic,lstm,fixed_fpr,0.937249,0.0,0.0,0.0149,

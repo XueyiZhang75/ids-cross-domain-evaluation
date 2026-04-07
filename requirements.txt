@@ -1,0 +1,29 @@
+# ── Data handling ────────────────────────────────
+numpy
+pandas
+pyarrow
+scipy
+
+# ── Config / utilities ──────────────────────────
+pyyaml
+tqdm
+joblib
+
+# ── Machine learning ────────────────────────────
+scikit-learn
+xgboost
+
+# ── Deep learning ───────────────────────────────
+torch
+torchvision
+
+# ── Plotting ────────────────────────────────────
+matplotlib
+seaborn
+
+# ── PCAP / traffic processing ───────────────────
+scapy
+dpkt
+
+# ── Notebooks ───────────────────────────────────
+jupyter

@@ -1,0 +1,181 @@
+eval_block,target_dataset,source_dataset,method,threshold_type,threshold_value,subset_type,subset_definition,n_samples,n_attacks,n_benign,f1,recall,precision,fpr,roc_auc,delta_f1_vs_full,delta_recall_vs_full,interpretation
+cic_to_iot,IoT-23,CIC-IDS2017,lr,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.8921,0.8153,0.9849,0.0167,0.9827,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,lr,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.8922,0.8155,0.9849,0.1345,0.8628,0.0001,0.0002,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lr,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.0,-0.8921,-0.8153,protocol_dominant_recall_loss
+cic_to_iot,IoT-23,CIC-IDS2017,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.9474,0.9216,0.9747,0.0167,0.9887,0.0553,0.1063,high_volume_easier
+cic_to_iot,IoT-23,CIC-IDS2017,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.6779,0.5384,0.9149,0.0167,0.9683,-0.2142,-0.2769,high_volume_harder
+cic_to_iot,IoT-23,CIC-IDS2017,lr,fixed_fpr,0.726264,full_test,all 12865 flows,12865,7348,5517,0.825,0.7062,0.992,0.0076,0.9827,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,lr,fixed_fpr,0.726264,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.8252,0.7064,0.992,0.0614,0.8628,0.0002,0.0002,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lr,fixed_fpr,0.726264,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.0,-0.825,-0.7062,protocol_dominant_recall_loss
+cic_to_iot,IoT-23,CIC-IDS2017,lr,fixed_fpr,0.726264,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.8278,0.7139,0.985,0.0076,0.9887,0.0028,0.0077,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lr,fixed_fpr,0.726264,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.4944,0.3359,0.9363,0.0076,0.9683,-0.3306,-0.3703,high_volume_harder
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.0,0.0,0.0,0.0002,0.8755,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0,0.0,0.0,0.0015,0.8047,0.0,0.0,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.8151,0.0,0.0,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.0,0.0,0.0,0.0002,0.9704,0.0,0.0,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.0,0.0,0.0,0.0002,0.6159,0.0,0.0,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,full_test,all 12865 flows,12865,7348,5517,0.1346,0.0725,0.9367,0.0065,0.8755,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.1347,0.0726,0.9384,0.0512,0.8047,0.0001,0.0001,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0002,0.8151,-0.1346,-0.0725,protocol_dominant_recall_loss
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.2375,0.136,0.9357,0.0065,0.9704,0.1029,0.0635,high_volume_easier
+cic_to_iot,IoT-23,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.2705,0.1595,0.8906,0.0065,0.6159,0.1359,0.087,high_volume_easier
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.0,0.0,0.0,0.0002,0.9212,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0,0.0,0.0,0.0015,0.5454,0.0,0.0,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.4739,0.0,0.0,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.0,0.0,0.0,0.0002,0.9367,0.0,0.0,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.0,0.0,0.0,0.0002,0.9566,0.0,0.0,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,fixed_fpr,0.002325,full_test,all 12865 flows,12865,7348,5517,0.0775,0.0406,0.8688,0.0082,0.9212,0.0,0.0,baseline
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,fixed_fpr,0.002325,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0775,0.0406,0.8688,0.0658,0.5454,0.0,0.0,protocol_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,fixed_fpr,0.002325,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.4739,-0.0775,-0.0406,protocol_dominant_recall_loss
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,fixed_fpr,0.002325,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.1416,0.0771,0.8684,0.0082,0.9367,0.0641,0.0365,high_volume_neutral
+cic_to_iot,IoT-23,CIC-IDS2017,lstm,fixed_fpr,0.002325,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.2702,0.16,0.8673,0.0082,0.9566,0.1927,0.1194,high_volume_easier
+unsw_to_iot,IoT-23,UNSW-NB15,lr,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.8601,0.8608,0.8595,0.1874,0.8755,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,lr,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.8954,0.8607,0.9329,0.6652,0.6344,0.0353,-0.0001,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lr,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0069,1.0,0.0034,0.1198,1.0,-0.8532,0.1392,protocol_dominant_recall_gain
+unsw_to_iot,IoT-23,UNSW-NB15,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.881,0.9987,0.7882,0.1874,0.9087,0.0209,0.1379,high_volume_easier
+unsw_to_iot,IoT-23,UNSW-NB15,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.5281,0.5607,0.499,0.1874,0.8202,-0.332,-0.3001,high_volume_harder
+unsw_to_iot,IoT-23,UNSW-NB15,lr,fixed_fpr,1.0,full_test,all 12865 flows,12865,7348,5517,0.0041,0.002,0.6818,0.0013,0.8755,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,lr,fixed_fpr,1.0,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0035,0.0018,0.65,0.0102,0.6344,-0.0006,-0.0002,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lr,fixed_fpr,1.0,udp_only,UDP flows only (protocol=17),4835,2,4833,1.0,1.0,1.0,0.0,1.0,0.9959,0.998,protocol_dominant_recall_gain
+unsw_to_iot,IoT-23,UNSW-NB15,lr,fixed_fpr,1.0,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.0077,0.0039,0.6818,0.0013,0.9087,0.0036,0.0019,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lr,fixed_fpr,1.0,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.0043,0.0022,0.3636,0.0013,0.8202,0.0002,0.0002,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.8081,0.84,0.7785,0.3183,0.7958,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.9025,0.84,0.975,0.231,0.849,0.0944,0.0,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0012,0.5,0.0006,0.3306,0.6424,-0.8069,-0.34,protocol_dominant_recall_loss
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.7901,0.9507,0.6759,0.3183,0.8563,-0.018,0.1107,rank_signal_preserved_volume_threshold_issue
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.4436,0.5574,0.3683,0.3183,0.6803,-0.3645,-0.2826,high_volume_harder
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,fixed_fpr,0.999995,full_test,all 12865 flows,12865,7348,5517,0.0,0.0,0.0,0.0,0.7958,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,fixed_fpr,0.999995,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0,0.0,0.0,0.0,0.849,0.0,0.0,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,fixed_fpr,0.999995,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.6424,0.0,0.0,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,fixed_fpr,0.999995,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.0,0.0,0.0,0.0,0.8563,0.0,0.0,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,xgb,fixed_fpr,0.999995,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.0,0.0,0.0,0.0,0.6803,0.0,0.0,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,default,0.5,full_test,all 12865 flows,12865,7348,5517,0.7074,0.9249,0.5727,0.9192,0.4482,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.9313,0.9251,0.9375,0.6623,0.5258,0.2239,0.0002,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,default,0.5,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.9555,0.0001,-0.7074,-0.9249,protocol_dominant_recall_loss
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.5571,0.8943,0.4045,0.9192,0.6238,-0.1503,-0.0306,rank_signal_preserved_volume_threshold_issue
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.3924,0.9178,0.2495,0.9192,0.4216,-0.315,-0.0071,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,fixed_fpr,0.999905,full_test,all 12865 flows,12865,7348,5517,0.0,0.0,0.0,0.0,0.4482,0.0,0.0,baseline
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,fixed_fpr,0.999905,tcp_only,TCP flows only (protocol=6),8030,7346,684,0.0,0.0,0.0,0.0,0.5258,0.0,0.0,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,fixed_fpr,0.999905,udp_only,UDP flows only (protocol=17),4835,2,4833,0.0,0.0,0.0,0.0,0.0001,0.0,0.0,protocol_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,fixed_fpr,0.999905,high_vol_atk_q75,atk: bytes_total >= Q75=360,9369,3852,5517,0.0,0.0,0.0,0.0,0.6238,0.0,0.0,high_volume_neutral
+unsw_to_iot,IoT-23,UNSW-NB15,lstm,fixed_fpr,0.999905,high_pps_atk_q75,atk: pps >= Q75=1.97,7354,1837,5517,0.0,0.0,0.0,0.0,0.4216,0.0,0.0,high_volume_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.1429,0.1998,0.1113,0.0958,0.6202,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.151,0.2461,0.1089,0.1326,0.7039,0.0081,0.0463,protocol_dominant_recall_gain
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0449,0.023,0.9706,0.0,0.1166,-0.098,-0.1768,protocol_dominant_recall_loss
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0066,0.0243,0.0038,0.0958,0.5329,-0.1363,-0.1755,high_volume_harder
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0058,0.0214,0.0033,0.0958,0.114,-0.1371,-0.1784,high_volume_harder
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,fixed_fpr,0.726264,full_test,all 122175 flows,122175,6916,115259,0.0641,0.0753,0.0559,0.0764,0.6202,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,fixed_fpr,0.726264,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0661,0.089,0.0525,0.1058,0.7039,0.002,0.0137,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,fixed_fpr,0.726264,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0449,0.023,0.9706,0.0,0.1166,-0.0192,-0.0523,protocol_dominant_recall_loss
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,fixed_fpr,0.726264,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0034,0.0104,0.002,0.0764,0.5329,-0.0607,-0.0649,high_volume_harder
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lr,fixed_fpr,0.726264,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0061,0.0185,0.0036,0.0764,0.114,-0.058,-0.0568,high_volume_harder
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.0003,0.0001,0.0833,0.0001,0.3244,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0004,0.0002,0.0833,0.0001,0.3621,0.0001,0.0001,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0,0.0,0.0,0.0,0.1236,-0.0003,-0.0001,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0,0.0,0.0,0.0001,0.3693,-0.0003,-0.0001,rank_signal_preserved_volume_threshold_issue
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0,0.0,0.0,0.0001,0.1523,-0.0003,-0.0001,high_volume_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,full_test,all 122175 flows,122175,6916,115259,0.0571,0.0561,0.0581,0.0546,0.3244,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0635,0.0704,0.0578,0.0756,0.3621,0.0064,0.0143,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0028,0.0014,1.0,0.0,0.1236,-0.0543,-0.0547,protocol_dominant_recall_loss
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0109,0.0254,0.0069,0.0546,0.3693,-0.0462,-0.0307,rank_signal_preserved_volume_threshold_issue
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,xgb,fixed_fpr,3.7e-05,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0017,0.004,0.0011,0.0546,0.1523,-0.0554,-0.0521,high_volume_harder
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.0,0.0,0.0,0.0,0.5408,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0,0.0,0.0,0.0,0.4668,0.0,0.0,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0,0.0,0.0,0.0,0.9278,0.0,0.0,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0,0.0,0.0,0.0,0.7288,0.0,0.0,high_volume_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0,0.0,0.0,0.0,0.3603,0.0,0.0,high_volume_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,fixed_fpr,0.002325,full_test,all 122175 flows,122175,6916,115259,0.0582,0.0348,0.1767,0.0097,0.5408,0.0,0.0,baseline
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,fixed_fpr,0.002325,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0704,0.044,0.1767,0.0135,0.4668,0.0122,0.0092,protocol_neutral
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,fixed_fpr,0.002325,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0,0.0,0.0,0.0,0.9278,-0.0582,-0.0348,protocol_dominant_recall_loss
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,fixed_fpr,0.002325,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.1552,0.1387,0.1761,0.0097,0.7288,0.097,0.1039,high_volume_easier
+cic_to_unsw,UNSW-NB15,CIC-IDS2017,lstm,fixed_fpr,0.002325,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0419,0.0353,0.0515,0.0097,0.3603,-0.0163,0.0005,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lr,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.0316,0.1436,0.0177,0.477,0.3267,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,lr,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0323,0.181,0.0177,0.6597,0.2272,0.0007,0.0374,protocol_dominant_recall_gain
+iot_to_unsw,UNSW-NB15,IoT-23,lr,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0013,0.0007,0.0159,0.0019,0.0359,-0.0303,-0.1429,protocol_dominant_recall_loss
+iot_to_unsw,UNSW-NB15,IoT-23,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0268,0.4457,0.0138,0.477,0.3967,-0.0048,0.3021,rank_signal_preserved_volume_threshold_issue
+iot_to_unsw,UNSW-NB15,IoT-23,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0074,0.1215,0.0038,0.477,0.1256,-0.0242,-0.0221,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lr,fixed_fpr,1.0,full_test,all 122175 flows,122175,6916,115259,0.022,0.0516,0.0139,0.219,0.3267,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,lr,fixed_fpr,1.0,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0229,0.065,0.0139,0.3028,0.2272,0.0009,0.0134,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lr,fixed_fpr,1.0,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0014,0.0007,0.0333,0.0009,0.0359,-0.0206,-0.0509,protocol_dominant_recall_loss
+iot_to_unsw,UNSW-NB15,IoT-23,lr,fixed_fpr,1.0,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0261,0.2064,0.0139,0.219,0.3967,0.0041,0.1548,high_volume_easier
+iot_to_unsw,UNSW-NB15,IoT-23,lr,fixed_fpr,1.0,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0105,0.0827,0.0056,0.219,0.1256,-0.0115,0.0311,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.0438,0.2072,0.0245,0.495,0.4035,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0432,0.2516,0.0236,0.6847,0.2446,-0.0006,0.0444,protocol_dominant_recall_gain
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0699,0.0376,0.4909,0.0017,0.6967,0.0261,-0.1696,protocol_dominant_recall_loss
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0399,0.6925,0.0206,0.495,0.6404,-0.0039,0.4853,rank_signal_preserved_volume_threshold_issue
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0095,0.1619,0.0049,0.495,0.3058,-0.0343,-0.0453,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,fixed_fpr,0.999967,full_test,all 122175 flows,122175,6916,115259,0.0,0.0,0.0,0.0,0.4035,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,fixed_fpr,0.999967,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0,0.0,0.0,0.0,0.2446,0.0,0.0,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,fixed_fpr,0.999967,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0,0.0,0.0,0.0,0.6967,0.0,0.0,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,fixed_fpr,0.999967,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0,0.0,0.0,0.0,0.6404,0.0,0.0,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,xgb,fixed_fpr,0.999967,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0,0.0,0.0,0.0,0.3058,0.0,0.0,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,default,0.5,full_test,all 122175 flows,122175,6916,115259,0.1394,0.1079,0.1968,0.0264,0.6279,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.1272,0.1045,0.1624,0.0355,0.5964,-0.0122,-0.0034,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,default,0.5,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.2039,0.1206,0.6603,0.0028,0.8014,0.0645,0.0127,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.1212,0.178,0.0919,0.0264,0.7527,-0.0182,0.0701,rank_signal_preserved_volume_threshold_issue
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0973,0.1411,0.0742,0.0264,0.4396,-0.0421,0.0332,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,fixed_fpr,0.937249,full_test,all 122175 flows,122175,6916,115259,0.0003,0.0001,0.5,0.0,0.6279,0.0,0.0,baseline
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,fixed_fpr,0.937249,tcp_only,TCP flows only (protocol=6),88727,5481,83246,0.0004,0.0002,0.5,0.0,0.5964,0.0001,0.0001,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,fixed_fpr,0.937249,udp_only,UDP flows only (protocol=17),33448,1435,32013,0.0,0.0,0.0,0.0,0.8014,-0.0003,-0.0001,protocol_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,fixed_fpr,0.937249,high_vol_atk_q75,atk: bytes_total >= Q75=4946,116989,1730,115259,0.0012,0.0006,0.5,0.0,0.7527,0.0009,0.0005,high_volume_neutral
+iot_to_unsw,UNSW-NB15,IoT-23,lstm,fixed_fpr,0.937249,high_pps_atk_q75,atk: pps >= Q75=87.60,116988,1729,115259,0.0,0.0,0.0,0.0,0.4396,-0.0003,-0.0001,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.7313,0.8031,0.6713,0.264,0.6392,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.7375,0.8031,0.6818,0.7318,0.3399,0.0062,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0189,0.7413,-0.7313,-0.8031,protocol_dominant_recall_loss
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.5812,0.6761,0.5097,0.264,0.5367,-0.1501,-0.127,high_volume_harder
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.5762,0.9921,0.406,0.264,0.7874,-0.1551,0.189,rank_signal_preserved_volume_threshold_issue
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,fixed_fpr,1.0,full_test,all 491455 flows,491455,197378,294077,0.0,0.0,0.0,0.0559,0.6392,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,fixed_fpr,1.0,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0,0.0,0.0,0.1627,0.3399,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,fixed_fpr,1.0,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0,0.7413,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,fixed_fpr,1.0,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0,0.0,0.0,0.0559,0.5367,0.0,0.0,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lr,fixed_fpr,1.0,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0559,0.7874,0.0,0.0,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.2038,0.1925,0.2166,0.4674,0.4191,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.2563,0.1925,0.3834,0.6042,0.2673,0.0525,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.3957,0.4845,-0.2038,-0.1925,protocol_dominant_recall_loss
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.2577,0.3182,0.2166,0.4674,0.4612,0.0539,0.1257,high_volume_easier
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.4674,0.3602,-0.2038,-0.1925,high_volume_harder
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,fixed_fpr,0.999995,full_test,all 491455 flows,491455,197378,294077,0.0,0.0,0.0,0.0,0.4191,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,fixed_fpr,0.999995,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0,0.0,0.0,0.0,0.2673,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,fixed_fpr,0.999995,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0,0.4845,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,fixed_fpr,0.999995,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0,0.0,0.0,0.0,0.4612,0.0,0.0,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,xgb,fixed_fpr,0.999995,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0,0.3602,0.0,0.0,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.6307,0.8022,0.5196,0.4979,0.749,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.7297,0.8022,0.6693,0.774,0.5885,0.099,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.3533,0.5095,-0.6307,-0.8022,protocol_dominant_recall_loss
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.4643,0.6731,0.3543,0.4979,0.6738,-0.1664,-0.1291,high_volume_harder
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.4221,1.0,0.2675,0.4979,0.8643,-0.2086,0.1978,rank_signal_preserved_volume_threshold_issue
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,fixed_fpr,0.999905,full_test,all 491455 flows,491455,197378,294077,0.0,0.0,0.0,0.0,0.749,0.0,0.0,baseline
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,fixed_fpr,0.999905,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0,0.0,0.0,0.0,0.5885,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,fixed_fpr,0.999905,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0,0.5095,0.0,0.0,protocol_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,fixed_fpr,0.999905,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0,0.0,0.0,0.0,0.6738,0.0,0.0,high_volume_neutral
+unsw_to_cic,CIC-IDS2017,UNSW-NB15,lstm,fixed_fpr,0.999905,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0,0.8643,0.0,0.0,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.0863,0.0497,0.328,0.0683,0.621,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,lr,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0863,0.0497,0.3288,0.1981,0.2167,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0004,0.353,-0.0863,-0.0497,protocol_dominant_recall_loss
+iot_to_cic,CIC-IDS2017,IoT-23,lr,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.1314,0.0821,0.3279,0.0683,0.6534,0.0451,0.0324,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0683,0.3248,-0.0863,-0.0497,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,fixed_fpr,1.0,full_test,all 491455 flows,491455,197378,294077,0.0019,0.001,0.0481,0.0131,0.621,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,lr,fixed_fpr,1.0,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0019,0.001,0.0484,0.0379,0.2167,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,fixed_fpr,1.0,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0001,0.353,-0.0019,-0.001,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,fixed_fpr,1.0,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0032,0.0016,0.0481,0.0131,0.6534,0.0013,0.0006,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lr,fixed_fpr,1.0,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0131,0.3248,-0.0019,-0.001,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.0004,0.0002,0.0016,0.0987,0.8335,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0004,0.0002,0.0016,0.2845,0.5269,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0013,0.2941,-0.0004,-0.0002,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0006,0.0004,0.0015,0.0987,0.8086,0.0002,0.0002,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0987,0.8442,-0.0004,-0.0002,rank_signal_preserved_volume_threshold_issue
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,fixed_fpr,0.999967,full_test,all 491455 flows,491455,197378,294077,0.0,0.0,0.0,0.0,0.8335,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,fixed_fpr,0.999967,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0,0.0,0.0,0.0,0.5269,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,fixed_fpr,0.999967,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0,0.2941,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,fixed_fpr,0.999967,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0,0.0,0.0,0.0,0.8086,0.0,0.0,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,xgb,fixed_fpr,0.999967,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0,0.8442,0.0,0.0,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,default,0.5,full_test,all 491455 flows,491455,197378,294077,0.2607,0.1914,0.4086,0.186,0.7067,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,default,0.5,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.2609,0.1914,0.4094,0.539,0.1583,0.0002,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,default,0.5,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.001,0.7985,-0.2607,-0.1914,protocol_dominant_recall_loss
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,default,0.5,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.3567,0.3165,0.4086,0.186,0.7383,0.096,0.1251,high_volume_easier
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,default,0.5,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.186,0.6576,-0.2607,-0.1914,high_volume_harder
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,fixed_fpr,0.937249,full_test,all 491455 flows,491455,197378,294077,0.0,0.0,0.0,0.0149,0.7067,0.0,0.0,baseline
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,fixed_fpr,0.937249,tcp_only,TCP flows only (protocol=6),298486,197377,101109,0.0,0.0,0.0,0.0433,0.1583,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,fixed_fpr,0.937249,udp_only,UDP flows only (protocol=17),192969,1,192968,0.0,0.0,0.0,0.0,0.7985,0.0,0.0,protocol_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,fixed_fpr,0.937249,high_vol_atk_q75,atk: bytes_total >= Q75=100,413467,119390,294077,0.0,0.0,0.0,0.0149,0.7383,0.0,0.0,high_volume_neutral
+iot_to_cic,CIC-IDS2017,IoT-23,lstm,fixed_fpr,0.937249,high_pps_atk_q75,atk: pps >= Q75=46603.38,347551,53474,294077,0.0,0.0,0.0,0.0149,0.6576,0.0,0.0,high_volume_neutral

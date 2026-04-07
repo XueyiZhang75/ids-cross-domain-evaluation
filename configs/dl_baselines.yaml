@@ -1,0 +1,135 @@
+# DL Baseline Configuration - Phase 3 Step 3
+# CIC-IDS2017 In-Domain Only
+#
+# This file governs all DL baseline experiments (1D-CNN, LSTM) on CIC-IDS2017.
+# Do not modify values mid-experiment. Any change to canonical sequence parameters
+# (sequence.k_canonical, sequence.n_features, sequence.canonical_feature_set,
+# or normalization procedure) invalidates cached sequences and all model results.
+# See docs/dl_baseline_protocol.md Section L for full invalidation conditions.
+
+dataset:
+  master_parquet: "D:/ids_project_data/processed/cicids2017/cicids2017_flows_master.parquet"
+  split_assignment_csv: "D:/ids_project_data/processed/cicids2017/cicids2017_split_assignment.csv"
+  interim_dir: "D:/ids_project_data/interim/cicids2017"
+  pcap_dir: "D:/ids_project_data/cicids2017/pcap"
+  seq_dir: "D:/ids_project_data/processed/cicids2017/dl_sequences"
+  models_dir: "D:/ids_project_data/models/cicids2017"
+  predictions_dir: "D:/ids_project_data/processed/cicids2017"
+
+# Raw PCAP filenames within pcap_dir.
+# Note: files are pcapng format despite the .pcap extension.
+pcap_files:
+  monday: "Monday-WorkingHours.pcap"
+  tuesday: "Tuesday-WorkingHours.pcap"
+  wednesday: "Wednesday-workingHours.pcap"
+  thursday: "Thursday-WorkingHours.pcap"
+  friday: "Friday-WorkingHours.pcap"
+
+# Frozen split assignments (do not alter).
+# train = Monday + Tuesday + Wednesday (1,052,851 flows)
+# val   = Thursday                     (357,338 flows)
+# test  = Friday                       (491,455 flows)
+split:
+  train_days: ["monday", "tuesday", "wednesday"]
+  val_days: ["thursday"]
+  test_days: ["friday"]
+  train_flows: 1052851
+  val_flows: 357338
+  test_flows: 491455
+
+sequence:
+  k_max: 32           # maximum K stored in cache (supports ablation up to K=32)
+  k_canonical: 16     # canonical baseline K
+  n_features: 4       # feature set B: [signed_packet_len, direction_flag, delta_t, protocol_id]
+  feature_names: ["signed_packet_len", "direction_flag", "delta_t", "protocol_id"]
+
+  # Feature set index slices for ablation.
+  # Index order matches feature_names above.
+  feature_sets:
+    A: [1, 3]         # direction_flag, protocol_id (indices 1, 3; as-run in Phase 3 Step 3)
+    B: [0, 1, 2, 3]   # all 4 features (canonical)
+
+  canonical_feature_set: "B"
+
+  # Tolerance window (seconds) for matching PCAP packets to flow records.
+  time_window_epsilon: 1.0
+
+  # Normalization settings.
+  # Scalers are fit on non-padded train steps only.
+  # Padded positions are re-zeroed after normalization is applied.
+  normalization:
+    signed_packet_len: "standard_scaler"  # StandardScaler
+    delta_t: "log1p_then_standard_scaler" # log1p transform then StandardScaler
+    direction_flag: "none"                # binary, no normalization
+    protocol_id: "none"                   # binary, no normalization
+
+training:
+  random_seed: 42
+  batch_size: 512
+  max_epochs_canonical: 30
+  max_epochs_ablation: 15
+  learning_rate: 0.001
+  early_stopping_patience: 5
+  early_stopping_metric: "val_pr_auc"   # primary model selection metric
+
+  # pos_weight = n_benign_train / n_attack_train = 1,025,048 / 27,803 ≈ 36.87
+  # Used in BCEWithLogitsLoss to handle class imbalance.
+  pos_weight: 36.87
+
+  # Class counts (informational; used to verify pos_weight).
+  train_attack_flows: 27803
+  train_benign_flows: 1025048
+
+models:
+  cnn1d:
+    conv_channels: [64, 128]
+    kernel_size: 3
+    dropout: 0.3
+    fc_hidden: 64
+
+  lstm:
+    hidden_size: 128
+    num_layers: 2
+    bidirectional: false
+    dropout: 0.2          # between LSTM layers
+    fc_hidden: 64
+    dropout_fc: 0.3       # before final FC layer
+
+evaluation:
+  default_threshold: 0.5
+  # Fixed-FPR budget for D10 operating point (FPR <= 1%).
+  fixed_fpr_budget: 0.01
+  # Thresholds are derived from val split only; test is never used for selection.
+  threshold_tiers:
+    - "thresh_default"    # fixed at 0.5
+    - "thresh_val_f1"     # maximizes F1 on val split
+    - "thresh_fpr_d10"    # lowest threshold achieving FPR <= fixed_fpr_budget on val
+
+  # Metrics reported per model, per threshold tier, per split.
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "fpr"
+    - "roc_auc"
+    - "pr_auc"
+    - "confusion_matrix"
+    - "recall_at_fixed_fpr"
+
+  # Descriptive per-family breakdown (informational only, not used for selection).
+  coarse_family_breakdown: true
+
+ablation:
+  k_values: [8, 16, 32]
+  feature_sets: ["A", "B"]
+  # Grid: all combinations of k_values x feature_sets, for both cnn1d and lstm.
+  # Total runs (excluding canonical which is also K=16, feature_set=B):
+  #   2 models × (3 K values × 2 feature sets) = 12 runs.
+
+# Calibration is NOT performed in this phase.
+# Output probabilities are uncalibrated sigmoid values.
+# Calibration is deferred to a later phase.
+calibration:
+  enabled: false
+  note: "Deferred to later phase. Must use val data only when implemented."
